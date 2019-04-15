@@ -1,0 +1,14 @@
+/*
+ * test.c
+ *
+ *  Created on: 12 apr. 2019
+ *      Author: gerja
+ */
+
+
+
+#include <stdio.h>
+
+int mian()
+printf("Hello world!");
+printf("Hello world!\n");

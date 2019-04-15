@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Apr 12 14:15:33 2019
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : sudokis
+Top-level Entity Name : test
+Family : Cyclone IV E
+Total logic elements : 3,484
+    Total combinational functions : 2,836
+    Dedicated logic registers : 1,960
+Total registers : 1960
+Total pins : 2
+Total virtual pins : 0
+Total memory bits : 384,320
+Embedded Multiplier 9-bit elements : 6
+Total PLLs : 0

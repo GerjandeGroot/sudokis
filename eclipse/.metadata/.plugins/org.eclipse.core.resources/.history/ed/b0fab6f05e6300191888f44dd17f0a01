@@ -1,0 +1,21 @@
+/*
+ * ReferenceImage.h
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#ifndef REFERENCEIMAGE_H_
+#define REFERENCEIMAGE_H_
+
+#define size;
+
+class ReferenceImage {
+private:
+	imageData[][]
+public:
+	ReferenceImage();
+	virtual ~ReferenceImage();
+};
+
+#endif /* REFERENCEIMAGE_H_ */

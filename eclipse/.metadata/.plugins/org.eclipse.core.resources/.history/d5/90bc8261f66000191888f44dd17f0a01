@@ -1,0 +1,10 @@
+#ifndef a
+#define a
+
+int width1 = 485;
+int height1 = 457;
+int data_size1 = 27885;
+
+
+
+#endif

@@ -1,0 +1,19 @@
+/*
+ * SubImage.h
+ *
+ *  Created on: 21 apr. 2019
+ *      Author: gerja
+ */
+
+#ifndef SUBIMAGE_H_
+#define SUBIMAGE_H_
+
+#include "Image.h"
+
+class SubImage: public Image {
+public:
+	SubImage();
+	virtual ~SubImage();
+};
+
+#endif /* SUBIMAGE_H_ */

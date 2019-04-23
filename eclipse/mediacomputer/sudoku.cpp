@@ -48,16 +48,18 @@ int main() {
 	printSudokuGrid(179, 19);
 
 	//while(1){
+	//testSudoku1();
+	//testSudoku2();
+	usleep(5000000);
+	reset2Darray();
+	alt_up_video_dma_screen_clear(dma, 0);
 	testSudoku1();
-//		usleep(5000000);
-//		reset2Darray();
-//		alt_up_video_dma_screen_clear(dma, 0);
-//		testSudoku1();
-//
-//	usleep(5000000);
-//	reset2Darray();
-//		alt_up_video_dma_screen_clear(dma, 0);
-//		testSudoku1();
+
+	usleep(5000000);
+	printSudokuGrid(179, 19);
+	reset2Darray();
+	alt_up_video_dma_screen_clear(dma, 0);
+	testSudoku2();
 
 	return 0;
 }
@@ -75,6 +77,8 @@ void printSudokuGrid(int x, int y) {
 		for (int i = 0; i < 9; i++) {
 			alt_up_pixel_buffer_dma_draw_rectangle(pb, x + i * 12, y + j * 12,
 					x + i * 12 + 12, y + j * 12 + 12, WHITE, 0);
+			alt_up_pixel_buffer_dma_draw_box(pb, (x+1) + i * 12, (y+1) + j * 12,
+						(x+1) + i * 12 + 10, (y+1) + j * 12 + 10, BLACK, 0);
 		}
 	}
 	for (int i = 0; i < 3; i++) {
@@ -196,7 +200,7 @@ bool solveCell(int x, int y) {
 				grid[x][y] = i;
 				drawNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
-				usleep(1000000);
+				usleep(500000);
 				clearMainNumber(x, y);
 				addNumberTo2DArray(x, y, i);
 				return true;
@@ -207,7 +211,7 @@ bool solveCell(int x, int y) {
 		grid[x][y] = solution;
 		drawNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
-		usleep(1000000);
+		usleep(500000);
 		clearMainNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
 		return true;
@@ -406,64 +410,60 @@ void testSudoku2() {
 	row++;
 	//rij 3
 	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 9);
-	drawMainNumber(2, row);
-	addNumberTo2DArray(2, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 6);
-	row++;
-	//rij 4
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 8);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 6);
+	addNumberTo2DArray(1, row, 7);
+	drawMainNumber(6, row);
+	addNumberTo2DArray(6, row, 5);
 	drawMainNumber(8, row);
 	addNumberTo2DArray(8, row, 3);
 	row++;
-	//rij 5
+	//rij 4
 	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 4);
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 8);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 3);
+	addNumberTo2DArray(0, row, 3);
+	drawMainNumber(4, row);
+	addNumberTo2DArray(4, row, 5);
 	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 1);
+	addNumberTo2DArray(8, row, 7);
+	row++;
+	//rij 5
+	drawMainNumber(2, row);
+	addNumberTo2DArray(2, row, 5);
+	drawMainNumber(4, row);
+	addNumberTo2DArray(4, row, 2);
+	drawMainNumber(7, row);
+	addNumberTo2DArray(7, row, 4);
 	row++;
 	//rij 6
 	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 7);
+	addNumberTo2DArray(0, row, 1);
+	drawMainNumber(1, row);
+	addNumberTo2DArray(1, row, 2);
 	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 2);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 6);
+	addNumberTo2DArray(4, row, 4);
+	drawMainNumber(5, row);
+	addNumberTo2DArray(5, row, 7);
 	row++;
 	//rij 7
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 6);
-	drawMainNumber(6, row);
-	addNumberTo2DArray(6, row, 2);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 8);
-	row++;
-	//rij 8
 	drawMainNumber(3, row);
 	addNumberTo2DArray(3, row, 4);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 1);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 9);
+	drawMainNumber(6, row);
+	addNumberTo2DArray(6, row, 8);
+	drawMainNumber(8, row);
+	addNumberTo2DArray(8, row, 2);
+	row++;
+	//rij 8
+	drawMainNumber(1, row);
+	addNumberTo2DArray(1, row, 4);
+	drawMainNumber(6, row);
+	addNumberTo2DArray(6, row, 1);
 	drawMainNumber(8, row);
 	addNumberTo2DArray(8, row, 5);
 	row++;
 
 	//rij 9
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 7);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 9);
+	drawMainNumber(0, row);
+	addNumberTo2DArray(0, row, 8);
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 3);
 
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {

@@ -19,9 +19,7 @@
 
 int main()
 {
-	init();
-	//printf("Hello world!");
-	//usleep(1000000);
+	top.init();
 	return 0;
 
 

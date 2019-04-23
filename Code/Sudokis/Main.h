@@ -8,6 +8,7 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
+
 #define timerBase 0x10002000
 
 #include "typedefs.h"
@@ -22,18 +23,39 @@
 #include "SubImage.h"
 #include "Image.h"
 #include "OCR.h"
+#include "sudoku.h"
 
 #include <math.h>
 
-void init();
-int constrain(int x, int a, int b);
-void pinMode(uint8_t pin, uint8_t mode);
-void digitalWrite(uint8_t pin, boolean on);
-unsigned long micros();
-void drawPixel(int x,int y,bool on);
-void drawPixelRaw(int x,int y,uint16_t value);
-void sleep();
-void learnOCR();
-void testOCR();
+class Main {
+public:
+	alt_up_parallel_port_dev* greenLeds = alt_up_parallel_port_open_dev("/dev/Green_LEDs");
+	alt_up_parallel_port_dev* redLeds = alt_up_parallel_port_open_dev("/dev/Red_LEDs");
+	alt_up_parallel_port_dev* keys = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
+	alt_up_parallel_port_dev* switches = alt_up_parallel_port_open_dev("/dev/Slider_Switches");
+	alt_up_parallel_port_dev* expansion = alt_up_parallel_port_open_dev("/dev/Expansion_JP5");
+	alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev("/dev/VGA_Subsystem_VGA_Pixel_DMA");
+	alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
+	alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
+
+	void startTimer();
+	void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b);
+	void init();
+	int constrain(int x, int a, int b);
+	void pinMode(uint8_t pin, uint8_t mode);
+	void digitalWrite(uint8_t pin, boolean on);
+	unsigned long micros();
+	void drawPixel(int x,int y,bool on);
+	void drawPixelRaw(int x,int y,uint16_t value);
+	void sleep();
+	void learnOCR();
+	void testOCR();
+	void clearScreen();
+	uint16_t readPixel(uint16_t x, uint16_t y);
+	void drawString(uint16_t x, uint16_t y, int text);
+	char* itoa(int num);
+};
+
+static Main top;
 
 #endif /* MAIN_H_ */

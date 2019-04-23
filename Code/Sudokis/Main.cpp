@@ -1,21 +1,12 @@
 #include "Main.h"
 
-alt_up_parallel_port_dev* greenLeds = alt_up_parallel_port_open_dev("/dev/Green_LEDs");
-alt_up_parallel_port_dev* redLeds = alt_up_parallel_port_open_dev("/dev/Red_LEDs");
-alt_up_parallel_port_dev* keys = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
-alt_up_parallel_port_dev* switches = alt_up_parallel_port_open_dev("/dev/Slider_Switches");
-alt_up_parallel_port_dev* expansion = alt_up_parallel_port_open_dev("/dev/Expansion_JP5");
-alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev("/dev/VGA_Subsystem_VGA_Pixel_DMA");
-alt_up_video_dma_dev* text = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
-alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
-alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
 //alt_up_av_config_dev* av = alt_up_av_config_open_dev("");
 
 uint16_t map(uint16_t x, uint16_t in_max, uint16_t out_max) {
   return x * out_max / in_max;
 }
 
-void startTimer() {
+void Main::startTimer() {
 	IOWR(timerBase,2,0xFFFF);
 	IOWR(timerBase,3,0xFFFF);
 	IOWR(timerBase,1,0b110);
@@ -31,7 +22,7 @@ void startTimer() {
 	printf("\n");
 }
 
-void drawPixel(int x,int y,bool on) {
+void Main::drawPixel(int x,int y,bool on) {
 	int color;
 	if(on) {
 		color = 0xFFFFFF;
@@ -41,11 +32,11 @@ void drawPixel(int x,int y,bool on) {
 	alt_up_pixel_buffer_dma_draw(pb,color,x,y);
 }
 
-void drawPixelRaw(int x,int y,uint16_t value) {
+void Main::drawPixelRaw(int x,int y,uint16_t value) {
 	alt_up_pixel_buffer_dma_draw(pb,value,x,y);
 }
 
-void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b) {
+void Main::drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b) {
 	r = map(r,255,31);
 	g = map(g,255,63);
 	b = map(b,255,31);
@@ -56,15 +47,15 @@ void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b) {
 	alt_up_pixel_buffer_dma_draw(pb,color,x,y);
 }
 
-uint16_t readPixel(uint16_t x, uint16_t y) {
+uint16_t Main::readPixel(uint16_t x, uint16_t y) {
 	uint32_t addr=0;
 	addr += ((x & pb->x_coord_mask) << pb->x_coord_offset);
 	addr += ((y & pb->y_coord_mask) << pb->y_coord_offset);
 	return IORD_16DIRECT(pb->back_buffer_start_address, addr);
 }
 
-void init() {
-	printf("text: %d\n", text);
+void Main::init() {
+	printf("text: %d\n", dma);
 	printf("greenLeds: %d\n", greenLeds);
 	printf("expansion: %d\n", expansion);
 	printf("redLeds: %d\n", redLeds);
@@ -100,13 +91,13 @@ void init() {
 	}
 }
 
-int constrain(int x, int a, int b) {
+int Main::constrain(int x, int a, int b) {
 	if(x<a)x=a;
 	if(x>b)x=b;
 	return x;
 }
 
-void pinMode(uint8_t pin, uint8_t mode) {
+void Main::pinMode(uint8_t pin, uint8_t mode) {
 	if(mode == INPUT) {
 		alt_up_parallel_port_write_data(expansion, alt_up_parallel_port_read_data(expansion) & ~(1 << pin));
 	} else if (mode == OUTPUT) {
@@ -114,7 +105,7 @@ void pinMode(uint8_t pin, uint8_t mode) {
 	}
 }
 
-void digitalWrite(uint8_t pin, boolean on) {
+void Main::digitalWrite(uint8_t pin, boolean on) {
 	if(on) {
 		alt_up_parallel_port_write_data(expansion, alt_up_parallel_port_read_data(expansion) | (1 << pin));
 	} else {
@@ -122,17 +113,17 @@ void digitalWrite(uint8_t pin, boolean on) {
 	}
 }
 
-unsigned long micros() {
+unsigned long Main::micros() {
 	IOWR(timerBase, 4,1);
 	return 0xFFFFFFFF -(((IORD(timerBase,5) << 16) | IORD(timerBase,4)) / 50);
 }
 
-void clearScreen() {
+void Main::clearScreen() {
 	alt_up_pixel_buffer_dma_clear_screen(pb, 0);
 	alt_up_video_dma_screen_clear(dma, 0);
 }
 
-void sleep() {
+void Main::sleep() {
 	usleep(500000);
 	printf("sleep: press button to continue.\n");
 	while(1) {
@@ -142,7 +133,7 @@ void sleep() {
 	}
 }
 
-void learnOCR() {
+void Main::learnOCR() {
 	printf("capture image\n");
 	IOWR(0x10003060,3,0b100);
 	sleep();
@@ -198,7 +189,7 @@ void learnOCR() {
 	while(1){};
 }
 
-void testOCR() {
+void Main::testOCR() {
 	printf("capture image\n");
 	IOWR(0x10003060,3,0b100);
 	sleep();
@@ -225,13 +216,43 @@ void testOCR() {
 	OCR ocr;
 
 	printf("looping through objects in photo\n");
+	Sudoku sudoku;
+	sudoku.create2DArray();
+
 	while(image.blackPixels()) {
 		SubImage object = image.extract();
 		if(object.width < 5 || object.height < 10) continue;
 		if(object.width > 20 || object.height > 20) continue;
 		uint8_t guess = ocr.recognizeNumber(&object);
-		alt_up_video_dma_draw(text,guess+48,(object.x - grid.x) / (grid.width / 9),(object.y - grid.y) / (grid.height / 9),0);
+		sudoku.addNumberTo2DArray((object.x-grid.x)/(grid.width/9), (object.y-grid.y)/(grid.height/9), guess);
 	}
+	sudoku.printSudokuGrid(179,19);
+	sudoku.solve();
+	sleep();
+}
+
+//Functie om een integer naar een char te converteren
+char* Main::itoa(int num) {
+	static char str[5];
+	int i = 0;
+	int base = 10;
+
+	if (num == 0) {
+		str[i++] = '0';
+		str[i] = '\0';
+		return str;
+	}
+	while (num != 0) {
+		int rem = num % base;
+		str[i++] = rem + '0';
+		num = num / base;
+	}
+	str[i] = '\0';
+	return str;
+}
+
+void Main::drawString(uint16_t x, uint16_t y, int text) {
+	alt_up_video_dma_draw_string(dma, itoa(text), x, y, 0);
 }
 
 

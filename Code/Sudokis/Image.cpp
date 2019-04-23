@@ -77,7 +77,7 @@ uint8_t Image::getPixel(uint16_t x, uint16_t y) {
 void Image::loadImage() {
 	for (int x = 0; x < width; ++x) {
 		for (int y = 0; y < height; ++y) {
-			uint16_t value = readPixel(x,y);
+			uint16_t value = top.readPixel(x,y);
 			setPixel(x,y,value);
 		};
 	};
@@ -105,7 +105,7 @@ void Image::resize(uint16_t newWidth, uint16_t newHeight) {
 			ny += heightScale;
 		}
 		newImage.draw(0,0);
-		clearScreen();
+		top.clearScreen();
 	}
 	copy(&newImage);
 }
@@ -125,7 +125,7 @@ void Image::copy(Image *newImage) {
 void Image::draw(uint16_t x, uint16_t y) {
 	for (int dx = 0; dx < width; ++dx) {
 		for (int dy = 0; dy < height; ++dy) {
-			drawPixel(x+dx,y+dy,getPixel(dx,dy));
+			top.drawPixel(x+dx,y+dy,getPixel(dx,dy));
 		};
 	};
 }

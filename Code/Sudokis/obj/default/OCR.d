@@ -15,7 +15,7 @@ obj/default/OCR.o: OCR.cpp OCR.h ../Sudokis_bsp//HAL/inc/io.h \
  ../Sudokis_bsp//drivers/inc/altera_up_avalon_parallel_port_regs.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_timestamp.h \
  ../Sudokis_bsp//drivers/inc/altera_avalon_timer.h \
- ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h stepper.h SubImage.h
+ ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h stepper.h SubImage.h sudoku.h
 
 OCR.h:
 
@@ -68,3 +68,5 @@ Main.h:
 stepper.h:
 
 SubImage.h:
+
+sudoku.h:

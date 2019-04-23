@@ -1,30 +1,9 @@
-16:49:59 **** Incremental Build of configuration Nios II for project mediapc ****
+11:29:37 **** Incremental Build of configuration Nios II for project mediapc ****
 make all 
 Info: Building ../mediapc_bsp/
 C:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../mediapc_bsp/
 [BSP build complete]
-Info: Compiling hello_world.c to obj/default/hello_world.o
-nios2-elf-gcc -xc -MP -MMD -c -I../mediapc_bsp//HAL/inc -I../mediapc_bsp/ -I../mediapc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
-hello_world.c: In function 'main':
-hello_world.c:26:9: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_pixel_buffer_dma_dev * {aka struct alt_up_pixel_buffer_dma_dev *}' [-Wformat=]
-  printf("pb: %d\n",pb);
-         ^
-hello_world.c:26:9: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_pixel_buffer_dma_dev * {aka struct alt_up_pixel_buffer_dma_dev *}' [-Wformat=]
-hello_world.c:37:9: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_video_dma_dev * {aka struct alt_up_video_dma_dev *}' [-Wformat=]
-  printf("dma: %d\n",dma);
-         ^
-hello_world.c:37:9: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_video_dma_dev * {aka struct alt_up_video_dma_dev *}' [-Wformat=]
-hello_world.c:39:2: warning: implicit declaration of function 'alt_up_video_dma_draw_hline' [-Wimplicit-function-declaration]
-  alt_up_video_dma_draw_hline(dma, 1, 0, 600, 8, 0);
-  ^
-Info: Linking mediapc.elf
-nios2-elf-g++  -T'../mediapc_bsp//linker.x' -msys-crt0='../mediapc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../mediapc_bsp/  -mcustom-fpu-cfg=60-2  -Wl,-Map=mediapc.map   -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o mediapc.elf obj/default/hello_world.o -lm -msys-lib=m
-nios2-elf-insert mediapc.elf --thread_model hal --cpu_name Nios2 --qsys true --simulation_enabled false --id 0 --sidp 0x10002020 --timestamp 1482343707 --stderr_dev JTAG_UART --stdin_dev JTAG_UART --stdout_dev JTAG_UART --sopc_system_name nios_system --quartus_project_dir "C:/intelFPGA_lite/16.1/University_Program/Computer_Systems/DE2-115/DE2-115_Media_Computer/verilog" --jdi C:/intelFPGA_lite/16.1/University_Program/Computer_Systems/DE2-115/DE2-115_Media_Computer/verilog/software/mediapc_bsp/../../DE2_115_Media_Computer.jdi --sopcinfo C:/intelFPGA_lite/16.1/University_Program/Computer_Systems/DE2-115/DE2-115_Media_Computer/verilog/software/mediapc_bsp/../../nios_system.sopcinfo
-Info: (mediapc.elf) 79 KBytes program size (code + initialized data).
-Info:               65448 KBytes free for stack + heap.
-Info: Creating mediapc.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source mediapc.elf >mediapc.objdump
 [mediapc build complete]
 
-16:50:01 Build Finished (took 2s.435ms)
+11:29:38 Build Finished (took 1s.276ms)
 

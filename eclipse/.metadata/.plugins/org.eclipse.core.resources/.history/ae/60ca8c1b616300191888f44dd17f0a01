@@ -1,0 +1,35 @@
+/*
+ * ReferenceImage.cpp
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#include "ReferenceImage.h"
+
+ReferenceImage::ReferenceImage() {
+}
+
+ReferenceImage::~ReferenceImage() {
+	// TODO Auto-generated destructor stub
+}
+
+void ReferenceImage::setScore(uint8_t x, uint8_t y, uint8_t score) {
+	if(x>=size || y>=size) return;
+	imageData[x][y] = score;
+}
+
+uint8_t ReferenceImage::getScore(uint8_t x, uint8_t y) {
+	if(x>=size || y>=size) return 0;
+	return imageData[x][y];
+}
+
+int ReferenceImage::generateScore(Image *image) {
+	int score = 0;
+	for (uint8_t x = 0; x < size; ++x) {
+		for (int y = 0; y < size; ++y) {
+
+		}
+		score += getScore(x,y) * image->getPixel(x,y);
+	}
+}

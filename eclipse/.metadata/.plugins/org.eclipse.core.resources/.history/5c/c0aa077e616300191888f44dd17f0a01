@@ -1,0 +1,29 @@
+/*
+ * ReferenceImage.h
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#ifndef REFERENCEIMAGE_H_
+#define REFERENCEIMAGE_H_
+
+#define size 20
+
+#include "typedefs.h"
+
+class ReferenceImage {
+private:
+	int8_t imageData[size][size];
+public:
+	ReferenceImage();
+	virtual ~ReferenceImage();
+	void draw(uint16_t x, uint16_t y);
+	uint32_t generateScore(Image *image);
+	void correct(Image *image);
+	void setScore(uint8_t x, uint8_t y, uint8_t value);
+	uint8_t getScore(uint8_t x, uint8_t y);
+	void draw(uint8_t x, uint8_t y)
+};
+
+#endif /* REFERENCEIMAGE_H_ */

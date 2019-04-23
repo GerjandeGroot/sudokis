@@ -1,0 +1,36 @@
+20:25:26 **** Incremental Build of configuration Nios II for project test ****
+make all 
+Info: Building ../mediapc_bsp/
+C:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../mediapc_bsp/
+[BSP build complete]
+Info: Compiling test.cpp to obj/default/test.o
+nios2-elf-gcc -xc++ -MP -MMD -c -I../mediapc_bsp//HAL/inc -I../mediapc_bsp/ -I../mediapc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED      -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o obj/default/test.o test.cpp
+test.cpp: In function 'int main()':
+test.cpp:17:2: error: 'alt_up_char_buffer_dev' was not declared in this scope
+  alt_up_char_buffer_dev *char_buffer_dev;
+  ^
+test.cpp:17:26: error: 'char_buffer_dev' was not declared in this scope
+  alt_up_char_buffer_dev *char_buffer_dev;
+                          ^
+test.cpp:46:110: error: 'alt_up_char_buffer_open_dev' was not declared in this scope
+  char_buffer_dev = alt_up_char_buffer_open_dev ("/dev/VGA_Subsystem_VGA_Char_Buffer_avalon_char_buffer_slave");
+                                                                                                              ^
+test.cpp:54:66: error: 'alt_up_char_buffer_string' was not declared in this scope
+  alt_up_char_buffer_string (char_buffer_dev, text_top_row, 35, 29);
+                                                                  ^
+test.cpp:98:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if ((deltax_1 > 0) && (x1 >= alt_up_pixel_buffer_dma_x_res(pixel_buffer_dev) - 1))
+                               ^
+test.cpp:108:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if ((deltax_2 > 0) && (x2 >= alt_up_pixel_buffer_dma_x_res(pixel_buffer_dev) - 1))
+                               ^
+test.cpp:118:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if ((deltay_1 > 0) && (y1 >= alt_up_pixel_buffer_dma_y_res(pixel_buffer_dev) - 1))
+                               ^
+test.cpp:128:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     if ((deltay_2 > 0) && (y2 >= alt_up_pixel_buffer_dma_y_res(pixel_buffer_dev) - 1))
+                               ^
+make: *** [obj/default/test.o] Error 1
+
+20:25:27 Build Finished (took 1s.211ms)
+

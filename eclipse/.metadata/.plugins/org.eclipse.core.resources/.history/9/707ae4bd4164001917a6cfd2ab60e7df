@@ -1,0 +1,49 @@
+/*
+ * OCR.cpp
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#include "OCR.h"
+
+OCR::OCR() {
+	for (int i = 0; i < characters; ++i) {
+		referenceImages[i] = ReferenceImage(flashBase+i*imageDataSize*imageDataSize);
+	}
+}
+
+OCR::~OCR() {
+	// TODO Auto-generated destructor stub
+}
+
+void OCR::draw(uint16_t x, uint16_t y) {
+	for (uint8_t i = 0; i < characters; ++i) {
+		referenceImages[i].draw(x + i * 22,y);
+	}
+}
+
+ReferenceImage* OCR::getReferenceImage(uint8_t i) {
+	return &referenceImages[i];
+}
+
+uint8_t OCR::recognizeNumber(Image *image) {
+	uint32_t scores[characters] = {0};
+	for (int i = 0; i < characters; ++i) {
+		scores[i] = getReferenceImage(i)->generateScore(image);
+	}
+
+	uint8_t highestScore = 0;
+	for (int i = 1; i < characters; ++i) {
+		if(scores[i] > scores[highestScore]) highestScore = i;
+	}
+	return highestScore;
+}
+
+void OCR::save() {
+	IOWR_32DIRECT(0x0BFF0000,0,flashBase);
+	for (uint8_t i = 0; i < characters; ++i) {
+		getReferenceImage(i)->save();
+	}
+	printf("reference data saved.\n");
+}

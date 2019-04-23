@@ -1,0 +1,25 @@
+/*
+ * OCR.h
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#ifndef OCR_H_
+#define OCR_H_
+
+#include "typedefs.h"
+#include "ReferenceImage.h"
+
+#define characters 8
+class ReferenceImage;
+
+class OCR {
+	ReferenceImage referenceImages[characters];
+public:
+	OCR();
+	virtual ~OCR();
+	void draw(uint16_t x, uint16_t y);
+};
+
+#endif /* OCR_H_ */

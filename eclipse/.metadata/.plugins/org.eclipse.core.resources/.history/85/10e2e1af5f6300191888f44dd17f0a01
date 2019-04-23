@@ -1,0 +1,18 @@
+/*
+ * ReferenceImage.cpp
+ *
+ *  Created on: 20 apr. 2019
+ *      Author: gerja
+ */
+
+#include "ReferenceImage.h"
+
+ReferenceImage::ReferenceImage() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ReferenceImage::~ReferenceImage() {
+	// TODO Auto-generated destructor stub
+}
+

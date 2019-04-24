@@ -48,8 +48,8 @@ int main() {
 	printSudokuGrid(179, 19);
 
 	//while(1){
-	//testSudoku1();
-	//testSudoku2();
+	testSudoku1();
+	testSudoku2();
 	usleep(5000000);
 	reset2Darray();
 	alt_up_video_dma_screen_clear(dma, 0);
@@ -60,6 +60,7 @@ int main() {
 	reset2Darray();
 	alt_up_video_dma_screen_clear(dma, 0);
 	testSudoku2();
+	//testSudoku3();
 
 	return 0;
 }
@@ -464,6 +465,95 @@ void testSudoku2() {
 	addNumberTo2DArray(0, row, 8);
 	drawMainNumber(3, row);
 	addNumberTo2DArray(3, row, 3);
+
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			int test = grid[j][i];
+			alt_up_video_dma_draw_string(dma, itoa(test), j, i + 1, 0);
+		}
+	}
+	usleep(5000000);
+	solve();
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			int test = grid[j][i];
+			alt_up_video_dma_draw_string(dma, itoa(test), j, i + 1, 0);
+		}
+	}
+}
+
+void testSudoku3() {
+	int row = 0;
+	//rij 1
+	drawMainNumber(4, row);
+	addNumberTo2DArray(4, row, 3);
+	drawMainNumber(6, row);
+	addNumberTo2DArray(6, row, 2);
+	row++;
+	//rij 2
+	drawMainNumber(2, row);
+	addNumberTo2DArray(2, row, 9);
+	drawMainNumber(4, row);
+	addNumberTo2DArray(4, row, 4);
+	row++;
+	//rij 3
+	drawMainNumber(0, row);
+	addNumberTo2DArray(0, row, 3);
+	drawMainNumber(1, row);
+	addNumberTo2DArray(1, row, 1);
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 2);
+	row++;
+	//rij 4
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 3);
+	drawMainNumber(7, row);
+	addNumberTo2DArray(7, row, 5);
+	row++;
+	//rij 5
+	drawMainNumber(1, row);
+	addNumberTo2DArray(1, row, 5);
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 1);
+	drawMainNumber(8, row);
+	addNumberTo2DArray(8, row, 6);
+	row++;
+	//rij 6
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 4);
+	drawMainNumber(7, row);
+	addNumberTo2DArray(7, row, 9);
+	drawMainNumber(8, row);
+	addNumberTo2DArray(8, row, 1);
+	row++;
+	//rij 7
+	drawMainNumber(0, row);
+	addNumberTo2DArray(0, row, 4);
+	drawMainNumber(6, row);
+	addNumberTo2DArray(6, row, 6);
+	row++;
+	//rij 8
+	drawMainNumber(3, row);
+	addNumberTo2DArray(3, row, 6);
+	drawMainNumber(2, row);
+	addNumberTo2DArray(2, row, 5);
+	drawMainNumber(4, row);
+	addNumberTo2DArray(4, row, 8);
+	drawMainNumber(5, row);
+	addNumberTo2DArray(5, row, 4);
+	row++;
+
+	//rij 9
+	drawMainNumber(0, row);
+	addNumberTo2DArray(0, row, 9);
+	drawMainNumber(1, row);
+	addNumberTo2DArray(1, row, 2);
+	drawMainNumber(2, row);
+	addNumberTo2DArray(2, row, 6);
+	drawMainNumber(5, row);
+	addNumberTo2DArray(5, row, 7);
+	drawMainNumber(8, row);
+	addNumberTo2DArray(8, row, 4);
 
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {

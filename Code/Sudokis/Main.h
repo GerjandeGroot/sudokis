@@ -36,8 +36,9 @@ public:
 	alt_up_parallel_port_dev* expansion = alt_up_parallel_port_open_dev("/dev/Expansion_JP5");
 	alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev("/dev/VGA_Subsystem_VGA_Pixel_DMA");
 	alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
-	alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
+	//alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
 
+	void rgbTest();
 	void startTimer();
 	void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b);
 	void init();
@@ -54,6 +55,9 @@ public:
 	uint16_t readPixel(uint16_t x, uint16_t y);
 	void drawString(uint16_t x, uint16_t y, int text);
 	char* itoa(int num);
+	void testSudoku();
+	void setRGB(bool r, bool g, bool b);
+
 };
 
 static Main top;

@@ -53,7 +53,7 @@ bool Image::blackPixels() {
 }
 
 void Image::setPixel(uint16_t x, uint16_t y, uint16_t value) {
-	if( ((value & (0b11111<<11)) >> 11) > 20 || ((value & (0b111111<<5)) >> 5) > 40 || ((value & (0b11111))) > 20 ) {
+	if( ((value & (0b11111<<11)) >> 11) > 25 || ((value & (0b111111<<5)) >> 5) > 40 || ((value & (0b11111))) > 25 ) {
 		setPixelRaw(x,y,1);
 	} else {
 		setPixelRaw(x,y,0);

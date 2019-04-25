@@ -16,6 +16,7 @@
 
 #include "Main.h"
 #include <HAL/inc/sys/alt_timestamp.h>
+#include <io.h>
 
 int main()
 {

@@ -46,7 +46,7 @@ void Sudoku::printSolutionToSudokuGrid() {
 			int value = grid[x][y];
 			int newX = x * 3 + 46;
 			int newY = y * 3 + 6;
-			top.drawString(x,y,value);
+			top.drawString(newX,newY,value);
 		}
 	}
 }
@@ -61,7 +61,7 @@ void Sudoku::drawNewNumber(int row, int columnn) {
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, UNKNOWN, 0);
 }
 
-void Sudoku::clearMainNumber(int row, int columnn) {
+void Sudoku::clearNewNumber(int row, int columnn) {
 	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLACK, 0);
 }
@@ -99,8 +99,8 @@ bool Sudoku::solveCell(int x, int y) {
 				grid[x][y] = i;
 				drawNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
-				usleep(1000000);
-				clearMainNumber(x, y);
+				usleep(500000);
+				clearNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
 				return true;
 			}
@@ -110,8 +110,8 @@ bool Sudoku::solveCell(int x, int y) {
 		grid[x][y] = solution;
 		drawNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
-		usleep(1000000);
-		clearMainNumber(x, y);
+		usleep(500000);
+		clearNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
 		return true;
 	}
@@ -195,6 +195,8 @@ void Sudoku::reset2Darray() {
 }
 
 void Sudoku::testSudoku1() {
+	reset2Darray();
+	printSudokuGrid(179,19);
 	int row = 0;
 	//rij 1
 	drawMainNumber(0, row);
@@ -289,6 +291,7 @@ void Sudoku::testSudoku1() {
 			top.drawString(j, i + 1,test);
 		}
 	}
+	usleep(5000000);
 }
 
 void Sudoku::testSudoku2() {

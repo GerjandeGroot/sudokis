@@ -55,40 +55,103 @@ uint16_t Main::readPixel(uint16_t x, uint16_t y) {
 }
 
 void Main::init() {
+	clearScreen();
 	printf("text: %d\n", dma);
 	printf("greenLeds: %d\n", greenLeds);
 	printf("expansion: %d\n", expansion);
 	printf("redLeds: %d\n", redLeds);
-	printf("av: %x\n", av);
+	//printf("av: %x\n", av);
 	printf("keys: %x\n", keys);
 	printf("switches: %x\n", switches);
-	//alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
 	startTimer();
 
+	alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
+
+	setRGB(false,true,false);
+
 	while(1) {
+		clearScreen();
+		alt_up_video_dma_draw_string(dma, "Select program", 0, 0, 0);
+		sleep();
+		clearScreen();
+
 		if(alt_up_parallel_port_read_data(switches) & (1 << 16)) {
 			testOCR();
-		} else {
+		} else if(alt_up_parallel_port_read_data(switches) & (1 << 17)) {
 			learnOCR();
+		} else if(alt_up_parallel_port_read_data(switches) & (1 << 14)){
+			testSudoku();
+		} else if(alt_up_parallel_port_read_data(switches) & (1 << 15)) {
+			break;
+		} else if(alt_up_parallel_port_read_data(switches) & (1 << 13)) {
+			rgbTest();
 		}
+
 	}
 
 
 
 	stepper stepper1 = stepper(1, 0, 1);
-	stepper1.setMaxSpeed(4000);
-	stepper1.setAcceleration(1000);
+	stepper1.setMaxSpeed(1000);
+	stepper1.setAcceleration(500);
 	stepper1.setMinPulseWidth(1);
 
-	sleep();
+	stepper stepper2 = stepper(1, 2, 3);
+	stepper2.setMaxSpeed(2000);
+	stepper2.setAcceleration(1000);
+	stepper2.setMinPulseWidth(1);
+
+	while(1) {
+		if(alt_up_parallel_port_read_data(switches) & (1 << 7)) {
+			stepper1.setCurrentPosition(0);
+			stepper2.setCurrentPosition(0);
+			stepper1.runToNewPosition(50);
+			stepper2.runToNewPosition(700);
+			stepper1.runToNewPosition(0);
+			stepper2.runToNewPosition(0);
+			stepper1.runToNewPosition(25);
+			stepper2.runToNewPosition(700);
+		}
+		if(alt_up_parallel_port_read_data(keys) & 0b1000) {
+			stepper2.move(1000);
+		} else if (alt_up_parallel_port_read_data(keys) & 0b100) {
+			stepper2.move(-1000);
+		}
+		stepper2.run();
+	}
+
 
 	while(1) {
 		printf("%d\n",micros());
 		alt_up_parallel_port_write_data(redLeds, micros());
-		stepper1.runToNewPosition(5000);
+		stepper1.runToNewPosition(1030);
 		stepper1.runToNewPosition(0);
-		//usleep(1000000);
+		stepper2.runToNewPosition(11200);
+		stepper2.runToNewPosition(0);
+		usleep(5000000);
 	}
+}
+
+void Main::rgbTest(){
+	printf("start rgbing\n");
+	digitalWrite(8, 1);
+	digitalWrite(9, 1);
+	usleep(10000000);
+	while(1){
+		for (int r = 0; r < 8; ++r) {
+			digitalWrite(8, r & 0b1);
+			digitalWrite(9, r & 0b10);
+			digitalWrite(10, r & 0b100);
+			usleep(2000000);
+		}
+	}
+
+}
+
+void Main::setRGB(bool r, bool g, bool b) {
+	digitalWrite(8,r);
+	digitalWrite(9,g);
+	digitalWrite(10,b);
 }
 
 int Main::constrain(int x, int a, int b) {
@@ -131,6 +194,12 @@ void Main::sleep() {
 			return;
 		}
 	}
+}
+
+void Main::testSudoku(){
+	Sudoku sudoku;
+	clearScreen();
+	sudoku.testSudoku1();
 }
 
 void Main::learnOCR() {
@@ -182,7 +251,8 @@ void Main::learnOCR() {
 					run = 0;
 				}
 			}
-			if(alt_up_parallel_port_read_data(switches) & (1 << 17)) ocr.save();
+			if(alt_up_parallel_port_read_data(keys) & (0b100)) ocr.save();
+			if(alt_up_parallel_port_read_data(keys) & (0b1000)) run = false;
 		}
 	}
 	ocr.save();
@@ -191,9 +261,11 @@ void Main::learnOCR() {
 
 void Main::testOCR() {
 	printf("capture image\n");
+	setRGB(true,true,true);
 	IOWR(0x10003060,3,0b100);
 	sleep();
 	IOWR(0x10003060,3,0b000);
+	setRGB(false,false,true);
 
 	printf("load and display image\n");
 	Image image = Image(320,240);
@@ -218,7 +290,7 @@ void Main::testOCR() {
 	printf("looping through objects in photo\n");
 	Sudoku sudoku;
 	sudoku.create2DArray();
-
+	sudoku.printSudokuGrid(179,19);
 	while(image.blackPixels()) {
 		SubImage object = image.extract();
 		if(object.width < 5 || object.height < 10) continue;
@@ -226,7 +298,6 @@ void Main::testOCR() {
 		uint8_t guess = ocr.recognizeNumber(&object);
 		sudoku.addNumberTo2DArray((object.x-grid.x)/(grid.width/9), (object.y-grid.y)/(grid.height/9), guess);
 	}
-	sudoku.printSudokuGrid(179,19);
 	sudoku.solve();
 	sleep();
 }

@@ -14,7 +14,7 @@ ReferenceImage::ReferenceImage(uint32_t address) {
 	for (int dx = 0; dx < imageDataSize; ++dx) {
 		for (int dy = 0; dy < imageDataSize; ++dy) {
 			setScore(dy,dx,(uint8_t)IORD_8DIRECT(address,dy*imageDataSize+dx));
-			//setScore(dx,dy,255);
+			//setScore(dy,dx,255);
 		}
 	}
 }

@@ -34,7 +34,7 @@ void reset2Darray();
 void testSudoku1();
 void testSudoku2();
 void testSudoku3();
-void testSudoku4();
+//void testSudoku4();
 void drawMainNumber(int row, int columnn);
 void clearMainNumber(int row, int columnn);
 void drawNewNumber(int row, int columnn);

@@ -15,7 +15,7 @@ obj/default/Main.o: Main.cpp Main.h typedefs.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_timestamp.h \
  ../Sudokis_bsp//drivers/inc/altera_avalon_timer.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h stepper.h SubImage.h Image.h \
- OCR.h ReferenceImage.h
+ OCR.h ReferenceImage.h sudoku.h
 
 Main.h:
 
@@ -68,3 +68,5 @@ Image.h:
 OCR.h:
 
 ReferenceImage.h:
+
+sudoku.h:

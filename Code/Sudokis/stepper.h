@@ -1,13 +1,11 @@
 #ifndef AccelStepper_h
 #define AccelStepper_h
 
+#include "typedefs.h"
 #include <unistd.h>
 #include "Main.h"
 #include <stdlib.h>
 #include <math.h>
-#include "typedefs.h"
-
-#define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
 
 // These defs cause trouble on some versions of Arduino
 #undef round

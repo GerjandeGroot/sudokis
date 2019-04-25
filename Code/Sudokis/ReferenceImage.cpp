@@ -14,7 +14,7 @@ ReferenceImage::ReferenceImage(uint32_t address) {
 	for (int dx = 0; dx < imageDataSize; ++dx) {
 		for (int dy = 0; dy < imageDataSize; ++dy) {
 			setScore(dy,dx,(uint8_t)IORD_8DIRECT(address,dy*imageDataSize+dx));
-			//setScore(dx,dy,255);
+			//setScore(dy,dx,255);
 		}
 	}
 }
@@ -66,7 +66,7 @@ void ReferenceImage::correct(Image *image) {
 void ReferenceImage::draw(uint16_t x, uint16_t y) {
 	for (int dx = 0; dx < imageDataSize; ++dx) {
 		for (int dy = 0; dy < imageDataSize; ++dy) {
-			drawPixelRaw(x+dx,y+dy,getScore(dx,dy),getScore(dx,dy),getScore(dx,dy));
+			top.drawPixelRaw(x+dx,y+dy,getScore(dx,dy),getScore(dx,dy),getScore(dx,dy));
 		}
 	}
 }

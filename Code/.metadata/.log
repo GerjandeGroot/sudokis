@@ -381,3 +381,1457 @@ org.eclipse.swt.SWTException: Widget is disposed
 
 !ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 11:50:17.306
 !MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+!SESSION 2019-04-23 12:00:40.702 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for F4:
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6cc56b32,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6cc56b32,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43fe2008,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43fe2008,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@552bee2f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@552bee2f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6a543e09,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6a543e09,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d0f548a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2d0f548a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fc3df43,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fc3df43,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for ALT+CTRL+H:
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@15130002,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@15130002,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for CTRL+SHIFT+H:
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e7cd0df,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e7cd0df,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 12:00:59.203
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@900649e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@900649e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 12:57:31.193
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 12:57:33.356
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 12:59:39.477
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 12:59:40.130
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 12:59:42.321
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:08:39.766
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:08:40.704
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:08:42.908
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:17:23.599
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:17:24.249
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:17:26.420
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY org.eclipse.jface 2 0 2019-04-23 13:28:14.697
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 13:28:14.697
+!MESSAGE A conflict occurred for ALT+ARROW_RIGHT:
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.forwardMacroExpansion,Forward,
+		Step forward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@59d3e1b9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.forwardHistory,Forward History,
+		Move forward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c6133b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 13:28:14.697
+!MESSAGE A conflict occurred for ALT+ARROW_LEFT:
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.backwardMacroExpansion,Back,
+		Step backward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@efa8dfa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.backwardHistory,Backward History,
+		Move backward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d95d3d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:29:18.579
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:29:19.295
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:29:21.696
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:31:05.866
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:31:06.516
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:31:08.738
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:33:14.978
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:33:15.619
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:33:17.875
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:19.259
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:19.897
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:22.081
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:40.177
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:40.828
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:35:43.016
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:39:07.354
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:39:07.995
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:39:10.177
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:40:19.884
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:40:20.512
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:40:22.740
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+!SESSION 2019-04-23 13:47:57.175 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-04-23 13:48:08.493
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:48:50.076
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:48:52.248
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:49:08.226
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:49:08.853
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:49:21.368
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --tcpport=auto --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2019-04-23 13:49:45.570
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:189)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:137)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:329)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:101)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:797)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:47)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:50:00.775
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:50:02.980
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:53:44.203
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:53:44.816
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:53:47.015
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:54:51.057
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:54:51.698
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:54:53.916
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:55:32.289
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:55:32.901
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 13:55:35.094
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:01:23.488
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:01:25.719
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:03:34.013
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:03:34.642
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:03:36.821
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:04:17.436
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:04:18.062
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:04:20.252
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:05:35.356
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:05:35.990
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:05:38.167
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:06:15.379
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:06:16.003
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:06:18.168
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:07:19.581
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:07:20.213
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:07:22.381
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+!SESSION 2019-04-23 14:23:52.039 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-04-23 14:24:12.273
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:26:37.925
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:26:40.115
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:28:17.921
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:28:20.070
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+!SESSION 2019-04-23 14:31:21.237 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/16.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-04-23 14:31:35.516
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:32:11.376
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:32:13.617
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:39:42.406
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:39:44.670
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:43:33.930
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:43:34.565
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:43:36.783
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:44:11.759
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:44:12.425
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:44:14.630
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:45:06.045
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:45:06.672
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:45:08.881
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:57:30.273
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:57:30.915
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:57:33.148
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:59:38.983
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:59:39.627
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 14:59:41.834
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:46:50.391
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:46:51.045
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:46:53.255
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:50:28.407
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:50:29.065
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:50:31.273
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:59:19.501
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:59:20.164
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 15:59:22.364
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:00:50.453
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:00:51.103
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:00:53.309
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:01:44.875
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:01:45.517
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:01:47.717
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:09:32.777
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:09:33.434
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:09:35.669
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY org.eclipse.jface 2 0 2019-04-23 16:24:17.218
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 16:24:17.218
+!MESSAGE A conflict occurred for ALT+ARROW_RIGHT:
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.forwardMacroExpansion,Forward,
+		Step forward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5b9d7666,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.forwardHistory,Forward History,
+		Move forward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@57645eff,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 16:24:17.218
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36bcae97,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36bcae97,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-23 16:24:17.218
+!MESSAGE A conflict occurred for ALT+ARROW_LEFT:
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.backwardMacroExpansion,Back,
+		Step backward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4fd43b14,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.backwardHistory,Backward History,
+		Move backward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@684c8402,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:25:07.660
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:25:08.298
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:25:10.514
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:26:18.114
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:26:18.759
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-23 16:26:20.996
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:17:21.113
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:17:21.910
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:17:24.163
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:25:39.036
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:25:39.657
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:25:41.883
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:26:57.378
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:26:58.007
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:27:00.229
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:33:31.019
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:33:31.667
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:33:33.905
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:38:56.938
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:38:57.609
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:38:59.851
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:47:51.499
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:47:52.126
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:47:54.370
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:48:23.986
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:48:24.650
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 09:48:26.899
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:29:47.008
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:29:47.683
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:29:50.005
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:34:48.079
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:34:48.863
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 10:34:51.212
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 12:57:47.093
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-24 12:57:52.992
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-24 12:57:53.003
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 12:58:05.518
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 12:58:07.803
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:00:28.935
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:00:29.575
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:00:31.852
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:01:46.493
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:01:47.283
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:01:49.573
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:04:15.982
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:04:16.641
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:04:18.946
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:05:24.473
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 13:05:26.766
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:44:32.850
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:44:34.195
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:44:36.964
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:46:34.849
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:46:35.516
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:46:37.815
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:48:52.680
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:48:53.652
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:48:55.983
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:50:35.786
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:50:36.431
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:50:38.740
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:51:02.179
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:51:03.140
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:51:05.485
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:54:00.321
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:54:00.978
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:54:03.214
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:58:09.191
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:58:09.863
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 15:58:12.137
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 16:01:51.610
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 16:01:52.272
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 16:01:54.556
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:24:51.084
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:24:51.745
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:24:54.003
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:25:20.682
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:25:21.360
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:25:23.539
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:19.582
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:20.224
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:22.414
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:50.226
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:50.866
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:26:53.112
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:28:11.558
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:28:12.201
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:28:14.409
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:29:00.028
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:29:00.673
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:29:02.894
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:56:41.185
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:56:41.847
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 17:56:44.048
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:00:27.680
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:00:28.324
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:00:30.522
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:01:38.975
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:01:39.619
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:01:41.825
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:08:36.540
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:08:37.189
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:08:39.420
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:09:44.918
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:09:45.558
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:09:47.782
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:10:40.119
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:10:40.768
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:10:42.993
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:15:39.711
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:15:40.358
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:15:42.556
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:17:26.796
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:17:27.429
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:17:29.624
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:18:08.134
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:18:08.773
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:18:10.969
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:19:04.812
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:19:05.457
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:19:07.656
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:20:06.936
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:20:07.587
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:20:09.791
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:22:03.054
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:22:03.682
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:22:05.892
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:01.688
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:02.356
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:04.572
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:41.928
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:42.559
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:23:44.798
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:24:56.032
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:24:56.662
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:24:58.883
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:25:43.948
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:25:44.596
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:25:46.769
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:28:15.569
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:28:16.235
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:28:18.447
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:34:49.834
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:34:50.475
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:34:52.691
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:37:02.862
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:37:03.503
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:37:05.674
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:37:58.985
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:37:59.621
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:38:01.800
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:38:40.776
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:38:41.419
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:38:43.632
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:39:39.805
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:39:40.446
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 18:39:42.657
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:24:39.405
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:24:40.064
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:24:42.273
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:30:21.903
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:30:22.546
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:30:24.821
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:31:39.735
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:31:40.390
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:31:42.630
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:32:18.359
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:32:19.012
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:32:21.220
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:33:21.470
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:33:22.129
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:33:24.304
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:37:23.177
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:37:23.810
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:37:27.051
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:38:23.367
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:38:24.013
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:38:26.221
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:40:04.244
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:40:04.901
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:40:07.077
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:41:53.446
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:41:54.097
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:41:56.310
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:48:45.586
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:48:47.801
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:49:42.643
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:49:43.266
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:49:45.513
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:50:54.595
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:50:55.278
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:50:57.479
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:51:37.774
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:51:38.423
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-24 19:51:40.639
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:05:09.832
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-25 13:05:15.371
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-25 13:05:15.377
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-25 13:05:20.323
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2019-04-25 13:05:20.327
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception: Connected system ID hash not found on target at expected base address.
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.assertTrue(SystemConsoleConnectionModel.java:645)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateSystemId(SystemConsoleConnectionModel.java:589)
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:511)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:05:36.558
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:05:38.815
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:10:04.976
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:10:05.601
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:10:07.834
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:15:50.681
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:15:51.369
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:15:53.608
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:24:34.091
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:24:34.740
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:24:36.955
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:36:36.654
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:36:37.299
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 13:36:39.538
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:02:48.882
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:02:49.529
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:02:51.782
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:04:44.326
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:04:44.966
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:04:46.746
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:04:47.456
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:04:58.941
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:08:02.384
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:08:03.146
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:08:05.350
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:10:15.030
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:10:15.668
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:10:17.907
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:15:00.690
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:15:01.345
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:15:03.593
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:23:25.994
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:23:26.651
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:23:28.856
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:24:58.199
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:24:58.852
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:25:01.028
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:42:40.457
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:42:41.090
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:42:43.299
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:43:44.103
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:43:44.764
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:43:46.996
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:45:10.743
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:45:11.377
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:45:13.547
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:46:09.335
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:46:09.963
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:46:12.184
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:48:42.308
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x10002020 --id=0x0 --timestamp=1482343707]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-04-25 14:48:44.520
+!MESSAGE Executing: [C:/intelfpga_lite/16.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x10002020 --id=0x0 --timestamp=1482343707 /cygdrive/c/Users/gerja/Desktop/sudokis/sudokis/Code/Sudokis/Sudokis.elf]

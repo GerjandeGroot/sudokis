@@ -15,7 +15,8 @@ obj/default/ReferenceImage.o: ReferenceImage.cpp ReferenceImage.h \
  ../Sudokis_bsp//drivers/inc/altera_up_avalon_parallel_port_regs.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_timestamp.h \
  ../Sudokis_bsp//drivers/inc/altera_avalon_timer.h \
- ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h stepper.h SubImage.h OCR.h
+ ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h stepper.h SubImage.h OCR.h \
+ sudoku.h
 
 ReferenceImage.h:
 
@@ -68,3 +69,5 @@ stepper.h:
 SubImage.h:
 
 OCR.h:
+
+sudoku.h:

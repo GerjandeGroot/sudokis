@@ -16,12 +16,11 @@
 
 #include "Main.h"
 #include <HAL/inc/sys/alt_timestamp.h>
+#include <io.h>
 
 int main()
 {
-	init();
-	//printf("Hello world!");
-	//usleep(1000000);
+	top.init();
 	return 0;
 
 

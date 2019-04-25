@@ -1,0 +1,46 @@
+#ifndef SUDOKU_H_
+#define SUDOKU
+
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+#include "sudoku.h"
+#include <time.h>
+#include <string>
+#include <unistd.h>
+#include <sstream>
+
+#define WHITE 	0xffffff
+#define BLACK 	0x000000
+#define YELLOW	0x00ff00
+#define BLUE	0x0000ff
+#define UNKNOWN	0xf0f0f0
+
+alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev(
+		"/dev/VGA_Subsystem_VGA_Pixel_DMA");
+alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev(
+		"/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
+class Sudoku {
+private:
+	int grid[9][9];
+
+	void resetScreen();
+	void printSudokuGrid(int x, int y);
+	void create2DArray();
+	void addNumberTo2DArray(int x, int y, int value);
+	void fillRandomNumber(int x, int y, int gridX, int gridY, int randNummer);
+	char* itoa(int num);
+	bool solve();
+	bool solveCell(int x, int y);
+	bool checkNumber(int x, int y, int i);
+	bool posElim(int x, int y, int i);
+	void reset2Darray();
+	void testSudoku1();
+	void testSudoku2();
+	void testSudoku3();
+	void testSudoku4();
+	void drawMainNumber(int row, int columnn);
+	void clearMainNumber(int row, int columnn);
+	void drawNewNumber(int row, int columnn);
+}
+#endif

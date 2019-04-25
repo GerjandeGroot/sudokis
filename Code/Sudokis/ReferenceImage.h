@@ -32,5 +32,6 @@ public:
 };
 
 #include "Image.h"
+#include "Main.h"
 
 #endif /* REFERENCEIMAGE_H_ */

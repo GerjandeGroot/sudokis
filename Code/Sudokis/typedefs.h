@@ -19,7 +19,5 @@
 #define INPUT 0
 #define HIGH 1
 #define LOW 0
-#define max( a, b ) ( ((a) > (b)) ? (a) : (b) )
-
 
 #endif /* TYPEDEFS_H_ */

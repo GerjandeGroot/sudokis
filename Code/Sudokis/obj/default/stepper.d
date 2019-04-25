@@ -1,4 +1,4 @@
-obj/default/stepper.o: stepper.cpp stepper.h Main.h typedefs.h \
+obj/default/stepper.o: stepper.cpp stepper.h typedefs.h Main.h \
  ../Sudokis_bsp//drivers/inc/altera_up_avalon_video_dma_controller.h \
  ../Sudokis_bsp//HAL/inc/alt_types.h \
  ../Sudokis_bsp//HAL/inc/sys/alt_dev.h ../Sudokis_bsp/system.h \
@@ -15,13 +15,13 @@ obj/default/stepper.o: stepper.cpp stepper.h Main.h typedefs.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_timestamp.h \
  ../Sudokis_bsp//drivers/inc/altera_avalon_timer.h \
  ../Sudokis_bsp/HAL/inc/sys/alt_sys_init.h SubImage.h Image.h OCR.h \
- ReferenceImage.h
+ ReferenceImage.h sudoku.h
 
 stepper.h:
 
-Main.h:
-
 typedefs.h:
+
+Main.h:
 
 ../Sudokis_bsp//drivers/inc/altera_up_avalon_video_dma_controller.h:
 
@@ -68,3 +68,5 @@ Image.h:
 OCR.h:
 
 ReferenceImage.h:
+
+sudoku.h:

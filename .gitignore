@@ -2,3 +2,6 @@
 *.pdom
 *.pdom
 Code/.metadata/.plugins/org.eclipse.cdt.core/Sudokis.1556012585904.pdom
+=======
+*.pdom
+>>>>>>> develop

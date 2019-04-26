@@ -24,6 +24,7 @@ public:
 	void drawMainNumber(int row, int columnn);
 	void clearMainNumber(int row, int columnn);
 	void drawNewNumber(int row, int columnn);
+	void printSolutionToSudokuGrid();
 protected:
 
 private:

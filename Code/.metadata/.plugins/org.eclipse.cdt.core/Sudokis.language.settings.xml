@@ -1491,6 +1491,22 @@
 						<entry kind="macro" name="__hal__" value=""/>
 					</resource>
 				</language>
+				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="drivers/src/altera_up_ps2_keyboard.c">
+						<entry kind="includePath" name="/Sudokis_bsp/HAL/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/Sudokis_bsp">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="includePath" name="/Sudokis_bsp/drivers/inc">
+							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
+						</entry>
+						<entry kind="macro" name="ALT_NO_INSTRUCTION_EMULATION" value=""/>
+						<entry kind="macro" name="ALT_SINGLE_THREADED" value=""/>
+						<entry kind="macro" name="__hal__" value=""/>
+					</resource>
+				</language>
 			</provider>
 		</extension>
 	</configuration>

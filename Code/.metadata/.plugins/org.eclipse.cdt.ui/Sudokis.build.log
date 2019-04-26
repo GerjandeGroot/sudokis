@@ -1,45 +1,83 @@
-14:48:38 **** Incremental Build of configuration Nios II for project Sudokis ****
+11:28:40 **** Incremental Build of configuration Nios II for project Sudokis ****
 make all 
 Info: Building ../Sudokis_bsp/
 C:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Sudokis_bsp/
 [BSP build complete]
-Info: Compiling Image.cpp to obj/default/Image.o
-nios2-elf-gcc -xc++ -MP -MMD -c -I../Sudokis_bsp//HAL/inc -I../Sudokis_bsp/ -I../Sudokis_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED      -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o obj/default/Image.o Image.cpp
-In file included from Image.cpp:8:0:
+Info: Compiling Main.cpp to obj/default/Main.o
+nios2-elf-gcc -xc++ -MP -MMD -c -I../Sudokis_bsp//HAL/inc -I../Sudokis_bsp/ -I../Sudokis_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED      -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o obj/default/Main.o Main.cpp
+In file included from SubImage.h:11:0,
+                 from Main.h:25,
+                 from Main.cpp:1:
 Image.h:28:23: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   uint8_t *imageData = 0;
                        ^
-In file included from Image.h:52:0,
-                 from Image.cpp:8:
-Main.h:32:87: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+In file included from Main.cpp:1:0:
+Main.h:34:87: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_parallel_port_dev* greenLeds = alt_up_parallel_port_open_dev("/dev/Green_LEDs");
                                                                                        ^
-Main.h:33:83: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:35:83: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_parallel_port_dev* redLeds = alt_up_parallel_port_open_dev("/dev/Red_LEDs");
                                                                                    ^
-Main.h:34:83: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:36:83: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_parallel_port_dev* keys = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
                                                                                    ^
-Main.h:35:91: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:37:91: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_parallel_port_dev* switches = alt_up_parallel_port_open_dev("/dev/Slider_Switches");
                                                                                            ^
-Main.h:36:90: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:38:90: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_parallel_port_dev* expansion = alt_up_parallel_port_open_dev("/dev/Expansion_JP5");
                                                                                           ^
-Main.h:37:103: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:39:103: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev("/dev/VGA_Subsystem_VGA_Pixel_DMA");
                                                                                                        ^
-Main.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+Main.h:40:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
   alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
                                                                                                             ^
-Info: Linking Sudokis.elf
-nios2-elf-g++  -T'../Sudokis_bsp//linker.x' -msys-crt0='../Sudokis_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../Sudokis_bsp/  -mcustom-fpu-cfg=60-2  -Wl,-Map=Sudokis.map   -O0 -g -Wall   -mhw-div -mcustom-fpu-cfg=60-2 -mhw-mul -mhw-mulx -mgpopt=global  -o Sudokis.elf obj/default/Image.o obj/default/Main.o obj/default/OCR.o obj/default/ReferenceImage.o obj/default/SubImage.o obj/default/hello_world.o obj/default/stepper.o obj/default/sudoku.o -lm -msys-lib=m
-nios2-elf-insert Sudokis.elf --thread_model hal --cpu_name Nios2 --qsys true --simulation_enabled false --id 0 --sidp 0x10002020 --timestamp 1482343707 --stderr_dev JTAG_UART --stdin_dev JTAG_UART --stdout_dev JTAG_UART --sopc_system_name nios_system --jdi C:/intelFPGA_lite/16.1/University_Program/Computer_Systems/DE2-115/DE2-115_Media_Computer/verilog/DE2_115_Media_Computer.jdi --sopcinfo C:/intelFPGA_lite/16.1/University_Program/Computer_Systems/DE2-115/DE2-115_Media_Computer/verilog/nios_system.sopcinfo
-Info: (Sudokis.elf) 864 KBytes program size (code + initialized data).
-Info:               64659 KBytes free for stack + heap.
-Info: Creating Sudokis.objdump
-nios2-elf-objdump --disassemble --syms --all-header Sudokis.elf >Sudokis.objdump
-[Sudokis build complete]
+Main.h:41:59: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  alt_up_ps2_dev* ps2 = alt_up_ps2_open_dev("/dev/PS2_Port");
+                                                           ^
+Main.cpp: In member function 'void Main::init()':
+Main.cpp:59:26: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_video_dma_dev*' [-Wformat=]
+  printf("text: %d\n", dma);
+                          ^
+Main.cpp:59:26: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_video_dma_dev*' [-Wformat=]
+Main.cpp:60:37: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+  printf("greenLeds: %d\n", greenLeds);
+                                     ^
+Main.cpp:60:37: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+Main.cpp:61:37: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+  printf("expansion: %d\n", expansion);
+                                     ^
+Main.cpp:61:37: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+Main.cpp:62:33: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+  printf("redLeds: %d\n", redLeds);
+                                 ^
+Main.cpp:62:33: warning: format '%d' expects argument of type 'int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+Main.cpp:64:27: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+  printf("keys: %x\n", keys);
+                           ^
+Main.cpp:64:27: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+Main.cpp:65:35: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+  printf("switches: %x\n", switches);
+                                   ^
+Main.cpp:65:35: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_parallel_port_dev*' [-Wformat=]
+Main.cpp:66:25: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_ps2_dev*' [-Wformat=]
+  printf("ps2: %x\n", ps2);
+                         ^
+Main.cpp:66:25: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'alt_up_ps2_dev*' [-Wformat=]
+Main.cpp:70:20: error: too few arguments to function 'alt_u32 reset_keyboard(alt_up_ps2_dev*)'
+  if(reset_keyboard()==0) {
+                    ^
+In file included from Main.h:18:0,
+                 from Main.cpp:1:
+../Sudokis_bsp//drivers/inc/altera_up_ps2_keyboard.h:74:9: note: declared here
+ alt_u32 reset_keyboard(alt_up_ps2_dev *ps2);
+         ^
+Main.cpp:131:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+   printf("%d\n",micros());
+                         ^
+Main.cpp:131:25: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+make: *** [obj/default/Main.o] Error 1
 
-14:48:41 Build Finished (took 2s.972ms)
+11:28:41 Build Finished (took 1s.542ms)
 

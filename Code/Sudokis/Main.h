@@ -15,6 +15,8 @@
 #include <stdio.h>
 #include <altera_up_avalon_video_dma_controller.h>
 #include <altera_up_avalon_video_pixel_buffer_dma.h>
+#include <altera_up_ps2_keyboard.h>
+#include <altera_up_avalon_ps2.h>
 #include <altera_up_avalon_parallel_port.h>
 #include <unistd.h>
 #include <HAL/inc/sys/alt_timestamp.h>
@@ -36,6 +38,7 @@ public:
 	alt_up_parallel_port_dev* expansion = alt_up_parallel_port_open_dev("/dev/Expansion_JP5");
 	alt_up_pixel_buffer_dma_dev* pb = alt_up_pixel_buffer_dma_open_dev("/dev/VGA_Subsystem_VGA_Pixel_DMA");
 	alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
+	alt_up_ps2_dev* ps2 = alt_up_ps2_open_dev("/dev/PS2_Port");
 	//alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
 
 	void rgbTest();

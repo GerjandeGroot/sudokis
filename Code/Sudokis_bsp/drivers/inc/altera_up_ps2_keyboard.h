@@ -71,6 +71,6 @@ void translate_make_code(KB_CODE_TYPE decode_mode, alt_u8 makecode, char *str);
  *
  * @return 0 on passing the BAT (Basic Assurance Test), negative value on error.
  **/
-alt_u32 reset_keyboard();
+alt_u32 reset_keyboard(alt_up_ps2_dev *ps2);
 
 #endif

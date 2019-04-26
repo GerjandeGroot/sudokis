@@ -63,7 +63,13 @@ void Main::init() {
 	//printf("av: %x\n", av);
 	printf("keys: %x\n", keys);
 	printf("switches: %x\n", switches);
+	printf("ps2: %x\n", ps2);
 	startTimer();
+
+
+	if(reset_keyboard()==0) {
+		printf("Keyboard connected");
+	}
 
 	alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
 

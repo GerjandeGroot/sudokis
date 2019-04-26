@@ -151,6 +151,7 @@ CXX_SRCS += OCR.cpp
 CXX_SRCS += ReferenceImage.cpp
 CXX_SRCS += hello_world.cpp
 CXX_SRCS += sudoku.cpp
+CXX_SRCS += Robot.cpp
 ASM_SRCS :=
 
 

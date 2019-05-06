@@ -1,7 +1,0 @@
-eclipse.preferences.version=1
-newApplicationWizardPage.defaultLocation=C\:\\intelFPGA_lite\\16.1\\University_Program\\Computer_Systems\\DE2-115\\DE2-115_Media_Computer\\verilog\\software\\test
-newBspWizardPage.defaultLocation=C\:\\Users\\gerja\\Desktop\\sudokis\\sudokis\\QSYS\\software\\BSP
-newBspWizardPage.sopcinfoFile=C\:\\Users\\gerja\\Desktop\\sudokis\\sudokis\\QSYS\\test.sopcinfo
-newSoftwareExampleWizardPage.defaultLocation=C\:\\intelFPGA_lite\\16.1\\University_Program\\Computer_Systems\\DE2-115\\DE2-115_Media_Computer\\verilog\\software\\mediapc
-newSoftwareExampleWizardPage.sopcinfoFile=C\:\\intelFPGA_lite\\16.1\\University_Program\\Computer_Systems\\DE2-115\\DE2-115_Media_Computer\\verilog\\nios_system.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=C\:\\intelFPGA_lite\\16.1\\University_Program\\Computer_Systems\\DE2-115\\DE2-115_Media_Computer\\verilog\\software\\mediapc_bsp

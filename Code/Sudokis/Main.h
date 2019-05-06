@@ -24,8 +24,13 @@
 #include "Image.h"
 #include "OCR.h"
 #include "sudoku.h"
-
+#include "includes.h"
+#include    "os_cfg.h"
+#include    "ucos_ii.h"
 #include <math.h>
+
+#define   TASK_STACKSIZE       2048
+OS_STK	create_task_stk[TASK_STACKSIZE];
 
 class Main {
 public:

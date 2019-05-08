@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;mediapc_bsp/HAL&apos;" deleteContents="false" description="Delete resource &apos;mediapc_bsp/HAL&apos;" element1="/mediapc_bsp/HAL" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1555408002876"/>&#x0A;<refactoring comment="Delete resource &apos;mediapc_bsp/OLD&apos;" deleteContents="false" description="Delete resource &apos;mediapc_bsp/OLD&apos;" element1="/mediapc_bsp/OLD" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1555408628560"/>
-</session>

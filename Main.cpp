@@ -55,6 +55,7 @@ uint16_t Main::readPixel(uint16_t x, uint16_t y) {
 }
 
 void Main::init() {
+	sleep();
 	clearScreen();
 	printf("text: %d\n", dma);
 	printf("greenLeds: %d\n", greenLeds);
@@ -72,19 +73,19 @@ void Main::init() {
 	//	printf("Keyboard connected");
 	//}
 	Robot robot;
-	while(1) {
+	while(0) {
 		robot.home();
 		//BELANGRIJKE WAARDE MAX X = -10500, MAX Y = 900!!!!
 	//	robot.moveTo(-10500, 900);
 		robot.moveTo(-540, 310);
-		usleep(1000000);
+		OSTimeDlyHMSM(0,0,1,0);
 	//	robot.moveTo(-10400, 890);
 		for(int y = 0; y < 9; y++){
 			for(int x = 0; x< 9; x++){
 
 				//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
 				robot.drawNumber(8, -540 - 1110 * x , 300 + 67 * y);
-				usleep(1000000);
+				OSTimeDlyHMSM(0,0,1,0);
 			}
 		}
 
@@ -155,7 +156,7 @@ void Main::init() {
 		stepper1.runToNewPosition(0);
 		stepper2.runToNewPosition(11200);
 		stepper2.runToNewPosition(0);
-		usleep(5000000);
+		OSTimeDlyHMSM(0,0,5,0);
 	}
 }
 
@@ -163,13 +164,13 @@ void Main::rgbTest(){
 	printf("start rgbing\n");
 	digitalWrite(8, 1);
 	digitalWrite(9, 1);
-	usleep(10000000);
+	OSTimeDlyHMSM(0,0,1,0);
 	while(1){
 		for (int r = 0; r < 8; ++r) {
 			digitalWrite(8, r & 0b1);
 			digitalWrite(9, r & 0b10);
 			digitalWrite(10, r & 0b100);
-			usleep(2000000);
+			OSTimeDlyHMSM(0,0,2,0);
 		}
 	}
 
@@ -220,12 +221,18 @@ void Main::clearScreen() {
 }
 
 void Main::sleep() {
-	usleep(500000);
+	OSTimeDlyHMSM(0,0,0,50);
 	printf("sleep: press button to continue.\n");
 	while(1) {
 		if(alt_up_parallel_port_read_data(keys) & 0b10) {
 			return;
 		}
+	}
+}
+
+void Main::microDelay(uint16_t time){
+	uint32_t prevTime = micros();
+	while((micros() - prevTime) < time){
 	}
 }
 
@@ -278,7 +285,7 @@ void Main::learnOCR() {
 		while(run) {
 			for(uint8_t i = 1; i < 10;i++) {
 				if(alt_up_parallel_port_read_data(switches) & (1 << i)) {
-					usleep(100000);
+					OSTimeDlyHMSM(0,0,0,100);
 					while(alt_up_parallel_port_read_data(switches) & (1 << i)) {};
 					ocr.getReferenceImage(i-1)->correct(&object);
 					run = 0;

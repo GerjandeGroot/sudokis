@@ -24,19 +24,26 @@
 
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
-OS_STK	create_task_stk[TASK_STACKSIZE];
-OS_STK    image_task_stk[TASK_STACKSIZE];
+OS_STK	create_task_stk[10000];
+OS_STK  image_task_stk[TASK_STACKSIZE];
 OS_STK	io_task_stk[TASK_STACKSIZE];
-OS_STK    robot_task_stk[TASK_STACKSIZE];
-OS_STK	button_task_stk[TASK_STACKSIZE];
+OS_STK  robot_task_stk[TASK_STACKSIZE];
+
 
 /* Definition of Task Priorities */
-#define create_task_priority	6
-#define image_task_priority    10
-#define io_task_priority		11
-#define robot_task_priority      12
+#define create_task_priority	7
+#define image_task_priority    	9
+#define io_task_priority		8
+#define robot_task_priority		10
 
 #define buf_size 16
+
+#define camera	 		0x01	//white
+#define waitingInput 	0x02	//green
+#define stop 			0x03	//red
+#define error 			0x04	//blinking red
+#define busy			0x05	//blue
+OS_FLAG_GRP *taskFlags;
 
 //function prototypes
 void create_task(void* pdata);
@@ -55,15 +62,18 @@ void image_task(void* pdata)
   while (1)
   {
     printf("Hello from image_task\n");
-    usleep(3000000);
+    OSTimeDlyHMSM(0,0,3,0);
   }
 }
 
 void io_task(void* pdata)
 {
+	INT8U err;
 	while(1){
+
+		//OSFlagPend(taskFlags, camera + waitingInput + stop + error + busy, OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 0, &err);
 		printf("Hello from io_task\n");
-		usleep(100);
+
 	}
 }
 
@@ -73,7 +83,7 @@ void robot_task(void* pdata)
   {
     printf("Hello from robot_task\n");
 
-    usleep(3000000);
+    OSTimeDlyHMSM(0,0,0,100);
   }
 }
 
@@ -82,6 +92,8 @@ void robot_task(void* pdata)
 void create_task(void* pdata){
 	printf("create tasks\n");
 	top.init();
+	INT8U err;
+	taskFlags = OSFlagCreate(0x00, &err);
 //	OSTaskCreate(image_task,
 //				  NULL,
 //				  &image_task_stk[TASK_STACKSIZE-1],

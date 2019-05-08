@@ -14,10 +14,11 @@ OS_STK io_task_stk[TASK_STACKSIZE];
 OS_STK robot_task_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
-#define create_task_priority	7
-#define image_task_priority    	9
-#define io_task_priority		8
-#define robot_task_priority		10
+#define create_task_priority	5
+#define io_task_priority		6
+#define robot_task_priority		7
+#define image_task_priority    	8
+
 
 #define buf_size 16
 

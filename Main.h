@@ -32,9 +32,6 @@
 #include    "ucos_ii.h"
 #include <math.h>
 
-#define   TASK_STACKSIZE       2048
-OS_STK	create_task_stk[TASK_STACKSIZE];
-
 class Main {
 public:
 	alt_up_parallel_port_dev* greenLeds = alt_up_parallel_port_open_dev("/dev/Green_LEDs");

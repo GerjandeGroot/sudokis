@@ -69,9 +69,9 @@ void Main::init() {
 	pinMode(8, OUTPUT);
 	pinMode(9, OUTPUT);
 	pinMode(10, OUTPUT);
-	//if(reset_keyboard(ps2)==0) {
-	//	printf("Keyboard connected");
-	//}
+
+	setRGB(false,true,false);
+
 	Robot robot;
 	while(0) {
 		robot.home();
@@ -84,8 +84,8 @@ void Main::init() {
 			for(int x = 0; x< 9; x++){
 
 				//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
-				robot.drawNumber(8, -540 - 1110 * x , 300 + 67 * y);
-				OSTimeDlyHMSM(0,0,1,0);
+
+				robot.drawNumber(x+1, -540 - 1110 * x , 300 + 67 * y);
 			}
 		}
 
@@ -94,8 +94,6 @@ void Main::init() {
 
 
 //	alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
-
-	setRGB(false,true,false);
 
 	while(1) {
 		clearScreen();

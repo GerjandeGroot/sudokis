@@ -120,6 +120,7 @@ void create_task(void* pdata){
 /* The main function creates two task and starts multi-tasking */
 int main(void)
 {
+	top.init();
 	OSTaskCreate(create_task,
 	                  NULL,
 	                  &create_task_stk[TASK_STACKSIZE-1],

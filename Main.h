@@ -28,7 +28,8 @@
 #include "OCR.h"
 #include "sudoku.h"
 #include "includes.h"
-
+#include    "os_cfg.h"
+#include    "ucos_ii.h"
 #include <math.h>
 
 class Main {

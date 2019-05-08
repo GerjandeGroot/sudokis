@@ -1,10 +1,5 @@
 #include "Main.h"
-//#include <HAL/inc/sys/alt_timestamp.h>
 #include <io.h>
-//#include <stdio.h>
-//#include <unistd.h>
-//#include <altera_up_avalon_parallel_port.h>
-//#include "includes.h"
 
 /* Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048

@@ -28,8 +28,6 @@
 #include "OCR.h"
 #include "sudoku.h"
 #include "includes.h"
-#include    "os_cfg.h"
-#include    "ucos_ii.h"
 #include <math.h>
 
 class Main {
@@ -56,6 +54,7 @@ public:
 	void drawPixel(int x,int y,bool on);
 	void drawPixelRaw(int x,int y,uint16_t value);
 	void sleep();
+	void microDelay(uint16_t time);
 	void learnOCR();
 	void testOCR();
 	void clearScreen();

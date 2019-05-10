@@ -47,11 +47,10 @@ void Robot::home() {
 			stepperX.run();
 		}
 	}
-	usleep(50000);
-	stepperY.setCurrentPosition(0);
-	stepperX.setCurrentPosition(0);
-	while (!top.digitalRead(12) || !top.digitalRead(13)) {
-		if (top.digitalRead(12)) {
+	
+	OSTimeDlyHMSM(0,0,0,50);
+	while(!top.digitalRead(12) || !top.digitalRead(13)){
+		if(top.digitalRead(12)){
 			stepperY.stop();
 			stepperY.setSpeed(0);
 		} else {

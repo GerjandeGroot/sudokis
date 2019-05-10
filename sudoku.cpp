@@ -99,7 +99,7 @@ bool Sudoku::solveCell(int x, int y) {
 				grid[x][y] = i;
 				drawNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
-				usleep(500000);
+				OSTimeDlyHMSM(0,0,0,500);
 				clearNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
 				return true;
@@ -110,7 +110,7 @@ bool Sudoku::solveCell(int x, int y) {
 		grid[x][y] = solution;
 		drawNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
-		usleep(500000);
+		OSTimeDlyHMSM(0,0,0,500);
 		clearNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
 		return true;
@@ -283,7 +283,7 @@ void Sudoku::testSudoku1() {
 			top.drawString(j, i + 1,test);
 		}
 	}
-	usleep(5000000);
+	OSTimeDlyHMSM(0,0,5,0);
 	solve();
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
@@ -291,7 +291,7 @@ void Sudoku::testSudoku1() {
 			top.drawString(j, i + 1,test);
 		}
 	}
-	usleep(5000000);
+	OSTimeDlyHMSM(0,0,5,0);
 }
 
 void Sudoku::testSudoku2() {
@@ -377,7 +377,7 @@ void Sudoku::testSudoku2() {
 			top.drawString(j, i + 1,test);
 		}
 	}
-	usleep(5000000);
+	OSTimeDlyHMSM(0,0,5,0);
 	solve();
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {

@@ -1,119 +1,151 @@
-///*
-// * "Hello World" example.
-// *
-// * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
-// * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
-// * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
-// * device in your system's hardware.
-// * The memory footprint of this hosted application is ~69 kbytes by default
-// * using the standard reference design.
-// *
-// * For a reduced footprint version of this template, and an explanation of how
-// * to reduce the memory footprint for a given application, see the
-// * "small_hello_world" template.
-// *
-// */
-//
 #include "Main.h"
-#include <HAL/inc/sys/alt_timestamp.h>
 #include <io.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <altera_up_avalon_parallel_port.h>
-#include "includes.h"
-//
-///* Definition of Task Stacks */
-//#define   TASK_STACKSIZE       2048
-//OS_STK	create_task_stk[TASK_STACKSIZE];
-//OS_STK    image_task_stk[TASK_STACKSIZE];
-//OS_STK	io_task_stk[TASK_STACKSIZE];
-//OS_STK    robot_task_stk[TASK_STACKSIZE];
-//OS_STK	button_task_stk[TASK_STACKSIZE];
-//
-///* Definition of Task Priorities */
-//#define create_task_priority	6
-//#define image_task_priority    10
-//#define io_task_priority		11
-//#define robot_task_priority      12
-//
-//#define buf_size 16
-//
-////function prototypes
-//void create_task(void* pdata);
-//void image_task(void* pdata);
-//void io_task(void* pdata);
-//void robot_task(void* pdata);
-//
-//OS_EVENT * coordinateQueue;
-//
-//void * MyBuff[buf_size];
-//
-//alt_up_parallel_port_dev* button = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
-//
-//void image_task(void* pdata)
-//{
-//  while (1)
-//  {
-//    printf("Hello from image_task\n");
-//    usleep(3000000);
-//  }
-//}
-//
-//void io_task(void* pdata)
-//{
-//	while(1){
-//		printf("Hello from io_task\n");
-//		usleep(100);
-//	}
-//}
-//
-//void robot_task(void* pdata)
-//{
-//  while (1)
-//  {
-//    printf("Hello from robot_task\n");
-//
-//    usleep(3000000);
-//  }
-//}
-//
-//
-//
-//void create_task(void* pdata){
-//	printf("create tasks\n");
-//	top.init();
-////	OSTaskCreate(image_task,
-////				  NULL,
-////				  &image_task_stk[TASK_STACKSIZE-1],
-////				  image_task_priority);
-////	printf("created image task\n");
-////	OSTaskCreate(io_task,
-////				  NULL,
-////				  &io_task_stk[TASK_STACKSIZE-1],
-////				  io_task_priority);
-////
-////	printf("created io task\n");
-////	OSTaskCreate(robot_task,
-////				  NULL,
-////				  &robot_task_stk[TASK_STACKSIZE-1],
-////				  robot_task_priority);
-////	printf("created robot task\n");
-////
-////	coordinateQueue = OSQCreate(&MyBuff[0], buf_size);
-////
-//	OSTaskSuspend(create_task_priority);
-//
-//}
-//
-///* The main function creates two task and starts multi-tasking */
-int main(void)
-{
-	top.init();
-//	OSTaskCreate(create_task,
-//	                  NULL,
-//	                  &create_task_stk[TASK_STACKSIZE-1],
-//	                  create_task_priority);
-//
-//  OSStart();
-  return 0;
+
+/* Definition of Task Stacks */
+#define   TASK_STACKSIZE       2048
+
+/* Definition of Task Priorities */
+#define TaskIOPrio			5
+#define TaskFlashPrio		6
+#define TaskRobotPrio		7
+#define TaskImagePrio   	8
+#define TaskNoodstopPrio	9
+
+
+#define buf_size 16
+
+#define camera			0x01	//white
+#define idle		 	0x02	//green
+#define error 			0x03	//red
+#define interupted		0x04	//blinking red
+#define busy			0x05	//blue
+#define start			0x01
+
+OS_STK TaskIOStack[TASK_STACKSIZE];
+OS_STK TaskRobotStack[TASK_STACKSIZE];
+OS_STK TaskImageStack[TASK_STACKSIZE];
+OS_STK TaskFlashStack[TASK_STACKSIZE];
+
+//function prototypes
+void taskIO(void* pdata);
+void taskImage(void* pdata);
+void taskRobot(void* pdata);
+void taskFlash(void* pdata);
+
+OS_EVENT *coordinateQueue;
+
+OS_FLAG_GRP *statusFlags;
+OS_FLAG_GRP *startFlag;
+
+bool flash = false;
+uint8_t status = idle;
+
+void * MyBuff[buf_size];
+
+alt_up_parallel_port_dev* button = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
+
+/* The main function creates two task and starts multi-tasking */
+int main(void) {
+	OSTaskCreate(taskIO, (void*)0, &TaskIOStack[TASK_STACKSIZE - 1], TaskIOPrio);
+	OSStart();
+	return 0;
+}
+
+void taskIO(void* pdata) {
+	top.pinMode(8, OUTPUT);
+	top.pinMode(9, OUTPUT);
+	top.pinMode(10, OUTPUT);
+	INT8U err;
+	coordinateQueue = OSQCreate(&MyBuff[0], buf_size);
+
+	statusFlags = OSFlagCreate(0x00, &err);
+	startFlag = OSFlagCreate(0x00, &err);
+	printf("create tasks\n");
+	OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_STACKSIZE-1], TaskImagePrio);
+	OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
+	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
+	printf("created robot task\n");
+
+
+
+	while(1){
+		printf("In while, waiting...\n");
+		//alt_up_parallel_port_write_data(top.redLeds, alt_up_parallel_port_read_data(top.keys) & 0b10);
+		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
+			OSFlagPost(startFlag, start, OS_FLAG_SET, &err);
+			if(status == idle){
+				status = camera;
+			}else if(status == camera){
+				status = busy;
+			}else if(status == interupted){
+				OSTaskResume(TaskImagePrio);
+				OSTaskResume(TaskRobotPrio);
+				status = busy;
+			}
+		}
+		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESEST
+			status = idle;
+			OSTaskDel(TaskImagePrio);
+			OSTaskDel(TaskRobotPrio);
+			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_STACKSIZE-1], TaskImagePrio);
+			OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
+
+		}
+		if(alt_up_parallel_port_read_data(top.keys) & 0b1000){ //NOODSTOP
+			printf("NOODSTOP!\n");
+
+			OSTaskSuspend(TaskImagePrio);
+
+			OSTaskSuspend(TaskRobotPrio);
+			status = interupted;
+			printf("Taken gestopt\n");
+
+		}
+		//RGB CONTROL
+		if(status == idle){
+			top.setRGB(false, true, false);
+		}else if(status == camera){
+			top.setRGB(true, true, true);
+		}else if(status == error){
+			top.setRGB(true,false,false);
+		}else if(status == interupted){
+			if(flash){
+				top.setRGB(true, false, false);
+			}
+			else{
+				top.setRGB(false, false, false);
+			}
+		}else if(status == busy){
+			top.setRGB(false, false, true);
+		}
+		OSTimeDlyHMSM(0,0,0,125);
+	}
+}
+
+void taskImage(void* pdata) {
+	INT8U err;
+	while (1) {
+		if(OSFlagPend(startFlag, start, OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 0, &err)){
+			alt_up_parallel_port_write_data(top.redLeds, 1);
+			printf("FLAG GEZIEN\n");
+		}
+		alt_up_parallel_port_write_data(top.redLeds, 0);
+		OSTimeDlyHMSM(0, 0, 0, 10);
+	}
+}
+
+void taskRobot(void* pdata) {
+	while (1) {
+		printf("Hello from robot_task\n");
+		//OSTimeDlyHMSM(0, 0, 0, 100);
+	}
+}
+
+void taskFlash(void* pdata){
+	INT8U err;
+	while(1){
+		flash = !flash;
+		OSTimeDlyHMSM(0,0,0,125);
+
+	}
 }

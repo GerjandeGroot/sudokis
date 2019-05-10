@@ -64,6 +64,7 @@ public:
 	char* itoa(int num);
 	void testSudoku();
 	void setRGB(bool r, bool g, bool b);
+	void drawNumberTest();
 
 };
 

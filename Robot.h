@@ -11,12 +11,12 @@
 #include "stepper.h"
 #include "typedefs.h"
 #include <unistd.h>
-#define numberXoffset -280
-#define numberYoffset 12
-#define numberRight -555
-#define numberLeft 555
-#define numberUp  25
-#define numberDown -25
+#define numberXoffset -169
+#define numberYoffset 10
+#define numberRight -677
+#define numberLeft 677
+#define numberUp  20
+#define numberDown -20
 class Robot {
 private:
 	stepper stepperY = stepper(1, 0, 1);
@@ -39,6 +39,7 @@ public:
 	void drawSeven(long x, long y);
 	void drawEight(long x, long y);
 	void drawNine(long x, long y);
+	void testDrive();
 };
 
 #include "Main.h"

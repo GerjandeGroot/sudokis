@@ -55,106 +55,118 @@ uint16_t Main::readPixel(uint16_t x, uint16_t y) {
 }
 
 void Main::init() {
-	clearScreen();
-	printf("text: %d\n", dma);
-	printf("greenLeds: %d\n", greenLeds);
-	printf("expansion: %d\n", expansion);
-	printf("redLeds: %d\n", redLeds);
-	//printf("av: %x\n", av);
-	printf("keys: %x\n", keys);
-	printf("switches: %x\n", switches);
-	printf("ps2: %x\n", ps2);
-	startTimer();
-	pinMode(8, OUTPUT);
-	pinMode(9, OUTPUT);
-	pinMode(10, OUTPUT);
-
-	setRGB(false,true,false);
+//	clearScreen();
+//	printf("text: %d\n", dma);
+//	printf("greenLeds: %d\n", greenLeds);
+//	printf("expansion: %d\n", expansion);
+//	printf("redLeds: %d\n", redLeds);
+//	//printf("av: %x\n", av);
+//	printf("keys: %x\n", keys);
+//	printf("switches: %x\n", switches);
+//	printf("ps2: %x\n", ps2);
+//	startTimer();
+//	pinMode(8, OUTPUT);
+//	pinMode(9, OUTPUT);
+//	pinMode(10, OUTPUT);
+//
+//	setRGB(false,true,false);
 
 	Robot robot;
-	while(1) {
-		robot.home();
+
+
+		robot.testDrive();
+		//robot.home();
 		//BELANGRIJKE WAARDE MAX X = -10500, MAX Y = 900!!!!
 	//	robot.moveTo(-10500, 900);
-		robot.moveTo(-540, 310);
-		usleep(1000000);
-	//	robot.moveTo(-10400, 890);
-		for(int y = 0; y < 9; y++){
-			for(int x = 0; x< 9; x++){
+//		robot.moveTo(-540, 310);
+//		usleep(1000000);
+//		robot.moveTo(-10500, 900);
+//		usleep(1000000);
+//		robot.moveTo(-540, 310);
+//		if()
+//		drawNumberTest();
 
-				//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
+//		while(1){
+//			if(alt_up_parallel_port_read_data(switches) & (1 << 1)) {
+//				robot.moveTo(-10500, 900);
+//				usleep(1000000);
+//			}
+//			if (alt_up_parallel_port_read_data(switches) & (1 << 2)){
+//				robot.moveTo(-540, 310);
+//				usleep(1000000);
+//			}
+//				if(alt_up_parallel_port_read_data(switches) & (1 << 3)){
+//			robot.home();
+//			usleep(1000000);
+//			}
+//		}
+//		sleep();
 
-				robot.drawNumber(x+1, -540 - 1110 * x , 300 + 67 * y);
-			}
-		}
-
-		sleep();
-	}
 
 
 //	alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
 
-	while(1) {
-		clearScreen();
-		alt_up_video_dma_draw_string(dma, "Select program", 0, 0, 0);
-		sleep();
-		clearScreen();
-
-		if(alt_up_parallel_port_read_data(switches) & (1 << 16)) {
-			testOCR();
-		} else if(alt_up_parallel_port_read_data(switches) & (1 << 17)) {
-			learnOCR();
-		} else if(alt_up_parallel_port_read_data(switches) & (1 << 14)){
-			testSudoku();
-		} else if(alt_up_parallel_port_read_data(switches) & (1 << 15)) {
-			break;
-		} else if(alt_up_parallel_port_read_data(switches) & (1 << 13)) {
-			rgbTest();
-		}
-
-	}
-
-
-
-	stepper stepper1 = stepper(1, 0, 1);
-	stepper1.setMaxSpeed(1000);
-	stepper1.setAcceleration(500);
-	stepper1.setMinPulseWidth(1);
-
-	stepper stepper2 = stepper(1, 2, 3);
-	stepper2.setMaxSpeed(2000);
-	stepper2.setAcceleration(1000);
-	stepper2.setMinPulseWidth(1);
-
-	while(1) {
-		if(alt_up_parallel_port_read_data(switches) & (1 << 7)) {
-			stepper1.setCurrentPosition(0);
-			stepper2.setCurrentPosition(0);
-			stepper1.runToNewPosition(50);
-			stepper2.runToNewPosition(700);
-			stepper1.runToNewPosition(0);
-			stepper2.runToNewPosition(0);
-			stepper1.runToNewPosition(25);
-			stepper2.runToNewPosition(700);
-		}
-		if(alt_up_parallel_port_read_data(keys) & 0b1000) {
-			stepper2.move(1000);
-		} else if (alt_up_parallel_port_read_data(keys) & 0b100) {
-			stepper2.move(-1000);
-		}
-		stepper2.run();
-	}
-
-
-	while(1) {
-		printf("%d\n",micros());
-		alt_up_parallel_port_write_data(redLeds, micros());
-		stepper1.runToNewPosition(1030);
-		stepper1.runToNewPosition(0);
-		stepper2.runToNewPosition(11200);
-		stepper2.runToNewPosition(0);
-		usleep(5000000);
-	}
+//	while(1) {
+//		clearScreen();
+//		alt_up_video_dma_draw_string(dma, "Select program", 0, 0, 0);
+//		sleep();
+//		clearScreen();
+//
+//		if(alt_up_parallel_port_read_data(switches) & (1 << 16)) {
+//			testOCR();
+//		} else if(alt_up_parallel_port_read_data(switches) & (1 << 17)) {
+//			learnOCR();
+//		} else if(alt_up_parallel_port_read_data(switches) & (1 << 14)){
+//			testSudoku();
+//		} else if(alt_up_parallel_port_read_data(switches) & (1 << 15)) {
+//			break;
+//		} else if(alt_up_parallel_port_read_data(switches) & (1 << 13)) {
+//			rgbTest();
+//		}
+//
+//	}
+//
+//
+//
+//	stepper stepper1 = stepper(1, 0, 1);
+//	stepper1.setMaxSpeed(1000);
+//	stepper1.setAcceleration(500);
+//	stepper1.setMinPulseWidth(1);
+//
+//	stepper stepper2 = stepper(1, 2, 3);
+//	stepper2.setMaxSpeed(2000);
+//	stepper2.setAcceleration(1000);
+//	stepper2.setMinPulseWidth(1);
+//
+//	while(1) {
+//		if(alt_up_parallel_port_read_data(switches) & (1 << 7)) {
+//			stepper1.setCurrentPosition(0);
+//			stepper2.setCurrentPosition(0);
+//			stepper1.runToNewPosition(50);
+//			stepper2.runToNewPosition(700);
+//			stepper1.runToNewPosition(0);
+//			stepper2.runToNewPosition(0);
+//			stepper1.runToNewPosition(25);
+//			stepper2.runToNewPosition(700);
+//		}
+//		if(alt_up_parallel_port_read_data(keys) & 0b1000) {
+//			stepper2.move(1000);
+//		} else if (alt_up_parallel_port_read_data(keys) & 0b100) {
+//			stepper2.move(-1000);
+//		}
+//		stepper2.run();
+//	}
+//
+//
+//	while(1) {
+//		printf("%d\n",micros());
+//		alt_up_parallel_port_write_data(redLeds, micros());
+//		stepper1.runToNewPosition(1030);
+//		stepper1.runToNewPosition(0);
+//		stepper2.runToNewPosition(11200);
+//		stepper2.runToNewPosition(0);
+//		usleep(5000000);
+//	}
 }
 
 void Main::rgbTest(){
@@ -177,6 +189,18 @@ void Main::setRGB(bool r, bool g, bool b) {
 	digitalWrite(8,r);
 	digitalWrite(9,g);
 	digitalWrite(10,b);
+}
+
+void Main::drawNumberTest(){
+	Robot robot;
+	for(int y = 0; y < 9; y++){
+				for(int x = 0; x< 9; x++){
+
+					//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
+
+					robot.drawNumber(x+1, -540 - 1110 * x , 300 + 67 * y);
+				}
+			}
 }
 
 int Main::constrain(int x, int a, int b) {

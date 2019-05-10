@@ -56,7 +56,7 @@ public:
 	void sleep();
 	void microDelay(uint16_t time);
 	void learnOCR();
-	void testOCR();
+	int testOCR();
 	void clearScreen();
 	uint16_t readPixel(uint16_t x, uint16_t y);
 	void drawString(uint16_t x, uint16_t y, int text);

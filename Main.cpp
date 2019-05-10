@@ -297,32 +297,27 @@ void Main::learnOCR() {
 	while(1){};
 }
 
-void Main::testOCR() {
+int Main::testOCR() {
 	printf("capture image\n");
-	setRGB(true,true,true);
-	IOWR(0x10003060,3,0b100);
-	sleep();
-	IOWR(0x10003060,3,0b000);
-	setRGB(false,false,true);
-
 	printf("load and display image\n");
 	Image image = Image(320,240);
 	image.loadImage();
 	image.draw(0,0);
-	sleep();
 
 	printf("looping through objects in photo to find grid\n");
 	SubImage grid = image.extract();
-	while(1) {
-		if(grid.width < 230 && grid.height < 230 && grid.width > 150 && grid.height > 150) break;
-		grid = image.extract();
+	while(1){
+		if(image.blackPixels()){
+			if(grid.width < 230 && grid.height < 230 && grid.width > 150 && grid.height > 150){
+				break;
+			}
+			grid = image.extract();
+		}else{
+			return -1;
+		}
 	}
 	clearScreen();
-	//grid.draw(0,0);
-	//sleep();
 	printf("find");
-
-
 
 	printf("load ocr\n");
 	clearScreen();
@@ -340,7 +335,6 @@ void Main::testOCR() {
 		sudoku.addNumberTo2DArray((object.x-grid.x)/(grid.width/9), (object.y-grid.y)/(grid.height/9), guess);
 	}
 	sudoku.solve();
-	sleep();
 }
 
 //Functie om een integer naar een char te converteren

@@ -29,7 +29,9 @@ public:
 	void moveRelative(long x, long y);
 	void drawNumber(int value, long x, long y);
 	void pen(bool down);
-
+	void testDrive();
+	void xAsHoming(int Yas);
+	void drawNumberToGrid(int value, long x, long y);
 	void drawOne(long x, long y);
 	void drawTwo(long x, long y);
 	void drawThree(long x, long y);

@@ -68,55 +68,7 @@ void Robot::home() {
 	stepperY.setCurrentPosition(0);
 	stepperX.setCurrentPosition(0);
 
-}
 
-void Robot::testDrive() {
-	int tempY = 0;
-	int tempX = 0;
-	int tempXas = 0;
-	int tempYas = 0;
-	bool xAs = false;
-	bool yAs = false;
-	int totalMovesX = 0;
-	int totalMovesY = 0;
-	while (1) {
-		for (int x = 0; x < 9; x++) {
-			for (int y = 0; y < 9; y++) {
-
-				if (tempXas != x) {
-					xAs = true;
-				}
-				if ((x == 3 || x == 6) && xAs == true) {
-
-					tempX = 59;
-					printf("tempX %d\n", tempX);
-					xAs = false;
-				} else {
-					tempX = 0;
-				}
-
-				if (tempYas != y) {
-					yAs = true;
-				}
-				if ((y == 3 || y == 6) && yAs == true) {
-					tempY = 9;
-					printf("tempY %d\n", tempY);
-					yAs = false;
-
-				} else {
-					tempY = 0;
-				}
-
-				totalMovesX = (x * 996) + tempX;
-				totalMovesY = (y * 59) + tempY;
-				printf("Xas = %d \t\t Yas = %d\n", totalMovesX, totalMovesY);
-				usleep(1000000);
-				//stepperX.moveTo(totalMovesX, totalMovesY);
-				tempXas = x;
-				tempYas = y;
-			}
-		}
-	}
 }
 
 void Robot::moveTo(long x, long y) {
@@ -276,3 +228,83 @@ void Robot::pen(bool down) {
 	}
 }
 
+void Robot::xAsHoming(int Yas) {
+	while ( top.digitalRead(13)) {
+
+		if (!top.digitalRead(13)) {
+			stepperX.stop();
+			stepperX.setSpeed(0);
+		} else {
+			stepperX.move(6000);
+			stepperX.run();
+		}
+	}
+
+	OSTimeDlyHMSM(0,0,0,50);
+	while( !top.digitalRead(13)){
+
+		if (top.digitalRead(13)) {
+			stepperX.stop();
+			stepperX.setSpeed(0);
+		} else {
+			stepperX.move(-100);
+			stepperX.run();
+		}
+	}
+
+	stepperX.setCurrentPosition(0);
+	moveTo(-540 , Yas);
+
+}
+
+void Robot::testDrive() {
+	Robot robot;
+	long tempY = 0;
+	long tempX = 0;
+	long tempXas = 0;
+	long tempYas = 0;
+	long totalMovesX = 0;
+	long totalMovesY = 0;
+
+	for (int x = 0; x <= 9; x++) {
+		for (int y = 0; y <= 9; y++) {
+
+			if (x < 3) {
+				tempX = 0;
+			} else if (x >= 3 && x < 6) {
+				tempX = 59;
+			} else if (x >= 6) {
+				tempX = 118;
+			}
+
+			if (y < 3) {
+				tempY = 0;
+			} else if (y >= 3 && y < 6) {
+				tempY = 9;
+
+			} else if (y >= 6) {
+				tempY = 18;// misschien - 4 doen
+				//		printf("tempY %d\n", tempY);
+			}
+				//-996!!!!!!!!!!!!!
+			totalMovesX = ( -969 * x) - tempX - 540;
+			totalMovesY = (y * 59) + tempY + 317;
+			printf("Xas = %l \t\t Yas = %l\n", totalMovesX, totalMovesY);
+			OSTimeDlyHMSM(0,0,1,0);
+			robot.moveTo(totalMovesX , totalMovesY);
+			tempXas = x;
+			tempYas = y;
+		}
+	}
+}
+
+void Robot::drawNumberToGrid(int value, long x, long y) {
+
+	long totalMovesX = 0;
+	long totalMovesY = 0;
+
+	totalMovesX = (-1065 * x) - 540;
+	totalMovesY = (y * 66) + 315;
+	moveTo(totalMovesX , totalMovesY);
+	drawNumber(value, x, y);
+}

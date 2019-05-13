@@ -99,7 +99,7 @@ bool Sudoku::solveCell(int x, int y) {
 				grid[x][y] = i;
 				drawNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
-				OSTimeDlyHMSM(0,0,0,500);
+				//OSTimeDlyHMSM(0,0,0,500);
 				clearNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
 				return true;
@@ -110,7 +110,7 @@ bool Sudoku::solveCell(int x, int y) {
 		grid[x][y] = solution;
 		drawNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
-		OSTimeDlyHMSM(0,0,0,500);
+		//OSTimeDlyHMSM(0,0,0,500);
 		clearNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
 		return true;

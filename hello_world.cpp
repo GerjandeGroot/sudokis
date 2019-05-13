@@ -2,13 +2,15 @@
 #include "Main.h"
 #include <io.h>
 /* Definition of Task Stacks */
-#define   TASK_STACKSIZE       2048
+#define		TASK_STACKSIZE		2048
+#define		TASK_IMAGE_STACK	20000
 
 /* Definition of Task Priorities */
 #define TaskIOPrio			5
 #define TaskFlashPrio		6
-#define TaskRobotPrio		7
-#define TaskImagePrio   	8
+#define MutexPrio			7
+#define TaskRobotPrio		8
+#define TaskImagePrio   	9
 
 
 #define buf_size 16
@@ -22,7 +24,7 @@
 
 OS_STK TaskIOStack[TASK_STACKSIZE];
 OS_STK TaskRobotStack[TASK_STACKSIZE];
-OS_STK TaskImageStack[TASK_STACKSIZE];
+OS_STK TaskImageStack[TASK_IMAGE_STACK];
 OS_STK TaskFlashStack[TASK_STACKSIZE];
 
 //function prototypes
@@ -33,6 +35,7 @@ void taskFlash(void* pdata);
 
 OS_EVENT *coordinateQueue;
 OS_EVENT *semItoR;
+OS_EVENT *OSMutex;
 
 OS_FLAG_GRP *statusFlags;
 OS_FLAG_GRP *startFlag;
@@ -46,32 +49,36 @@ alt_up_parallel_port_dev* button = alt_up_parallel_port_open_dev("/dev/Pushbutto
 
 /* The main function creates two task and starts multi-tasking */
 int main(void) {
-	//semItoR = OSSemCreate(1);
+	INT8U err;
 	OSTaskCreate(taskIO, (void*)0, &TaskIOStack[TASK_STACKSIZE - 1], TaskIOPrio);
 	OSStart();
 	return 0;
 }
 
 void taskIO(void* pdata) {
+	INT8U err;
+
 	top.pinMode(8, OUTPUT);
 	top.pinMode(9, OUTPUT);
 	top.pinMode(10, OUTPUT);
-	INT8U err;
+
 	coordinateQueue = OSQCreate(&MyBuff[0], buf_size);
 	statusFlags = OSFlagCreate(0x00, &err);
 	startFlag = OSFlagCreate(0x00, &err);
 	printf("create tasks\n");
 	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
 
+	top.clearScreen();
+
 	while(1){
 		printf("In while, waiting...\n");
 		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
 			OSFlagPost(startFlag, start, OS_FLAG_SET, &err);
 
-			OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
 			if(status == idle){
-				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_STACKSIZE-1], TaskImagePrio);
-				status = camera;
+				Robot robot;
+				robot.home();
+				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 			}else if(status == camera){
 				status = busy;
 			}else if(status == interupted){
@@ -80,13 +87,14 @@ void taskIO(void* pdata) {
 				status = busy;
 			}
 		}
-		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESEST
+		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESET
+			printf("RESET ingedrukt\n");
 			status = idle;
+			Robot robot;
+			robot.home();
 			OSTaskDel(TaskImagePrio);
 			OSTaskDel(TaskRobotPrio);
-			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_STACKSIZE-1], TaskImagePrio);
-			OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
-			printf("RESET\n");
+			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 		}
 		if(alt_up_parallel_port_read_data(top.keys) & 0b1000){ //NOODSTOP
 			printf("NOODSTOP!\n");
@@ -94,7 +102,9 @@ void taskIO(void* pdata) {
 			OSTaskSuspend(TaskRobotPrio);
 			status = interupted;
 			printf("Taken gestopt\n");
-
+		}
+		if(alt_up_parallel_port_read_data(top.switches) & (1<<17)){
+			top.learnOCR();
 		}
 
 		//RGB CONTROL
@@ -119,33 +129,32 @@ void taskIO(void* pdata) {
 }
 
 void taskImage(void* pdata) {
-	//OSSemAccept(semItoR);
+	INT8U err;
+	status = camera;
 	printf("in taskImage\n");
 	top.clearScreen();
 	IOWR(0x10003060,3,0b100);
-	OSTimeDlyHMSM(0,0,1,0);
+	OSTimeDlyHMSM(0,0,3,0);
 	IOWR(0x10003060,3,0b000);
 	status = busy;
+
 	if(top.testOCR() < 0){
 		status = error;
 	}else{
 		status = idle;
-		//OSSemPost(semItoR);
+		printf("tasRobot wordt gestart");
+		OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
 	}
 }
 
 void taskRobot(void* pdata) {
-	INT8U err;
-	printf("Hello from robot_task\n");
+	printf("In taskRobot\n");
 	Robot robot;
-	//while (1) {
-		//OSSemPend(semItoR,0,&err);
-	//}
-	robot.home();
+	robot.testDrive();
 }
 
 void taskFlash(void* pdata){
-	INT8U err;
+	//INT8U err;
 	while(1){
 		flash = !flash;
 		OSTimeDlyHMSM(0,0,0,125);

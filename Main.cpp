@@ -75,11 +75,11 @@ void Main::init() {
 	Robot robot;
 	while(0) {
 		robot.home();
-		//BELANGRIJKE WAARDE MAX X = -10500, MAX Y = 900!!!!
-	//	robot.moveTo(-10500, 900);
+		//BELANGRIJKE WAARDE MAX X = -10250 MIN = -540, MAX Y = 920 MIN = 315!!!!
+	//	robot.moveTo(-10250, 900);
 		robot.moveTo(-540, 310);
 		OSTimeDlyHMSM(0,0,1,0);
-	//	robot.moveTo(-10400, 890);
+	//	robot.moveTo(-10150, 890);
 		for(int y = 0; y < 9; y++){
 			for(int x = 0; x< 9; x++){
 
@@ -252,7 +252,7 @@ void Main::clearScreen() {
 }
 
 void Main::sleep() {
-	OSTimeDlyHMSM(0,0,0,50);
+	OSTimeDlyHMSM(0,0,0,500);
 	printf("sleep: press button to continue.\n");
 	while(1) {
 		if(alt_up_parallel_port_read_data(keys) & 0b10) {
@@ -273,7 +273,8 @@ void Main::testSudoku(){
 	sudoku.testSudoku1();
 }
 
-void Main::learnOCR() {
+int Main::learnOCR() {
+	setRGB(true,true,true);
 	printf("capture image\n");
 	IOWR(0x10003060,3,0b100);
 	sleep();
@@ -286,16 +287,21 @@ void Main::learnOCR() {
 	sleep();
 
 	printf("looping through objects in photo to find grid\n");
-	SubImage grid = image.extract();
-	while(1) {
-		if(grid.width < 230 && grid.height < 230 && grid.width > 150 && grid.height > 150) break;
-		grid = image.extract();
-	}
+		SubImage grid = image.extract();
+		while(1){
+			if(image.blackPixels()){
+				if(grid.width < 230 && grid.height < 230 && grid.width > 150 && grid.height > 150){
+					break;
+				}
+				grid = image.extract();
+			}else{
+				//return -1;
+			}
+		}
+	printf("load ocr\n");
 	clearScreen();
 	grid.draw(0,0);
 	sleep();
-
-	printf("load ocr\n");
 	clearScreen();
 	OCR ocr;
 

@@ -8,12 +8,11 @@
 #include "Robot.h"
 
 Robot::Robot() {
-	// TODO Auto-generated constructor stub
 	top.pinMode(12, INPUT); //Y
 	top.pinMode(13, INPUT); //X
 
 	stepperX.setMaxSpeed(1500);
-	stepperX.setAcceleration(1500);
+	stepperX.setAcceleration(2500);
 	stepperX.setMinPulseWidth(1);
 
 	stepperY.setMaxSpeed(2000);
@@ -27,39 +26,39 @@ Robot::~Robot() {
 	// TODO Auto-generated destructor stub
 }
 
-void Robot::home(){
+void Robot::home() {
 	//stepperX.move(10);
 	//stepperX.
 	//stepperY.setSpeed(-100);
-	while(top.digitalRead(12) || top.digitalRead(13)){
-		if(!top.digitalRead(12)){
+	while (top.digitalRead(12) || top.digitalRead(13)) {
+		if (!top.digitalRead(12)) {
 			stepperY.stop();
 			stepperY.setSpeed(0);
-		}else{
+		} else {
 			stepperY.move(-50);
 			stepperY.run();
 		}
-		if(!top.digitalRead(13)){
+		if (!top.digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
-		}else{
+		} else {
 			stepperX.move(6000);
 			stepperX.run();
 		}
 	}
-	OSTimeDlyHMSM(0,0,0,50);
-	while(!top.digitalRead(12) || !top.digitalRead(13)){
-		if(top.digitalRead(12)){
+	OSTimeDlyHMSM(0, 0, 0, 50);
+	while (!top.digitalRead(12) || !top.digitalRead(13)) {
+		if (top.digitalRead(12)) {
 			stepperY.stop();
 			stepperY.setSpeed(0);
-		}else{
+		} else {
 			stepperY.move(10);
-					stepperY.run();
+			stepperY.run();
 		}
-		if(top.digitalRead(13)){
+		if (top.digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
-		}else{
+		} else {
 			stepperX.move(-100);
 			stepperX.run();
 		}
@@ -69,70 +68,69 @@ void Robot::home(){
 
 }
 
-void Robot::moveTo(long x, long y){
+void Robot::moveTo(long x, long y) {
 	stepperX.moveTo(x);
 	stepperY.moveTo(y);
-	while(stepperX.isRunning()|| stepperY.isRunning()){
+	while (stepperX.isRunning() || stepperY.isRunning()) {
 		stepperX.run();
 		stepperY.run();
-		}
+	}
 }
 
-void Robot::drawNumber(int value, long x, long y){
- switch(value){
+void Robot::drawNumber(int value, long x, long y) {
+	switch (value) {
 
- case 1:
-	 drawOne(x,y);
-	 break;
- case 2:
-	 drawTwo(x,y);
- 	 break;
- case 3:
-	 drawThree(x,y);
- 	 break;
- case 4:
-	 drawFour(x,y);
- 	 break;
- case 5:
-	 drawFive(x,y);
- 	 break;
- case 6:
-	 drawSix(x,y);
- 	 break;
- case 7:
-	 drawSeven(x,y);
- 	 break;
- case 8:
-	 drawEight(x,y);
- 	 break;
- case 9:
-	 drawNine(x,y);
- 	 break;
+	case 1:
+		drawOne(x, y);
+		break;
+	case 2:
+		drawTwo(x, y);
+		break;
+	case 3:
+		drawThree(x, y);
+		break;
+	case 4:
+		drawFour(x, y);
+		break;
+	case 5:
+		drawFive(x, y);
+		break;
+	case 6:
+		drawSix(x, y);
+		break;
+	case 7:
+		drawSeven(x, y);
+		break;
+	case 8:
+		drawEight(x, y);
+		break;
+	case 9:
+		drawNine(x, y);
+		break;
 
-
- }
+	}
 }
 
-void Robot::drawOne(long x, long y){
-	moveTo(x + numberXoffset+numberRight, y +  numberYoffset);
+void Robot::drawOne(long x, long y) {
+	moveTo(x + numberXoffset + numberRight, y + numberYoffset);
 	pen(true);
-	moveRelative(0,numberUp*2);
+	moveRelative(0, numberUp * 2);
 	pen(false);
 }
 
-void Robot::drawTwo(long x, long y){
-	moveTo(x + numberXoffset+numberRight, y +  numberYoffset);
+void Robot::drawTwo(long x, long y) {
+	moveTo(x + numberXoffset + numberRight, y + numberYoffset);
 	pen(true);
-	moveRelative(numberLeft,0);
-	moveRelative(0,numberUp);
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberUp);
 	moveRelative(numberRight, 0);
-	moveRelative(0,numberUp);
+	moveRelative(0, numberUp);
 	moveRelative(numberLeft, 0);
 	pen(false);
 }
 
-void Robot::drawThree(long x, long y){
-	moveTo(x + numberXoffset, y +  numberYoffset);
+void Robot::drawThree(long x, long y) {
+	moveTo(x + numberXoffset, y + numberYoffset);
 	pen(true);
 	moveRelative(numberRight, 0);
 	moveRelative(0, numberUp);
@@ -143,93 +141,92 @@ void Robot::drawThree(long x, long y){
 	pen(false);
 }
 
-void Robot::drawFour(long x, long y){
-	moveTo(x + numberXoffset+numberRight, y +  numberYoffset);
+void Robot::drawFour(long x, long y) {
+	moveTo(x + numberXoffset + numberRight, y + numberYoffset);
 	pen(true);
-	moveRelative(0,numberUp*2);
-	moveRelative(0,numberDown);
+	moveRelative(0, numberUp * 2);
+	moveRelative(0, numberDown);
 	moveRelative(numberLeft, 0);
-	moveRelative(0,numberUp);
+	moveRelative(0, numberUp);
 	pen(false);
 }
 
-void Robot::drawFive(long x, long y){
-	moveTo(x + numberXoffset, y +  numberYoffset);
+void Robot::drawFive(long x, long y) {
+	moveTo(x + numberXoffset, y + numberYoffset);
 	pen(true);
-	moveRelative(numberRight,0);
-	moveRelative(0,numberUp);
-	moveRelative(numberLeft, 0);
-	moveRelative(0,numberUp);
-	moveRelative(numberRight,0);
-	pen(false);
-}
-
-void Robot::drawSix(long x, long y){
-	moveTo(x + numberXoffset+numberRight, y +  numberYoffset+numberUp*2);
-	pen(true);
-	moveRelative(numberLeft,0);
-	moveRelative(0,numberDown*2);
 	moveRelative(numberRight, 0);
-	moveRelative(0,numberUp);
-	moveRelative(numberLeft,0);
+	moveRelative(0, numberUp);
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberUp);
+	moveRelative(numberRight, 0);
 	pen(false);
 }
 
-void Robot::drawSeven(long x, long y){
-	moveTo(x + numberXoffset+numberRight, y +  numberYoffset);
+void Robot::drawSix(long x, long y) {
+	moveTo(x + numberXoffset + numberRight, y + numberYoffset + numberUp * 2);
 	pen(true);
-	moveRelative(0,numberUp*2);
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberDown * 2);
+	moveRelative(numberRight, 0);
+	moveRelative(0, numberUp);
 	moveRelative(numberLeft, 0);
 	pen(false);
 }
 
-
-void Robot::drawEight(long x, long y){
-	moveTo(x + numberXoffset, y +  numberYoffset);
+void Robot::drawSeven(long x, long y) {
+	moveTo(x + numberXoffset + numberRight, y + numberYoffset);
 	pen(true);
-	moveRelative(numberRight, 0);
-	moveRelative(0,numberUp * 2);
-
-	moveRelative(numberLeft,0);
-	moveRelative(0,numberDown);
-	moveRelative(numberRight,0);
-	moveRelative(numberLeft,0);
-	moveRelative(0,numberDown);
+	moveRelative(0, numberUp * 2);
+	moveRelative(numberLeft, 0);
 	pen(false);
 }
 
-void Robot::drawNine(long x, long y){
-	moveTo(x + numberXoffset, y +  numberYoffset);
+void Robot::drawEight(long x, long y) {
+	moveTo(x + numberXoffset, y + numberYoffset);
 	pen(true);
 	moveRelative(numberRight, 0);
-	moveRelative(0,numberUp * 2);
-	moveRelative(numberLeft,0);
-	moveRelative(0,numberDown);
-	moveRelative(numberRight,0);
+	moveRelative(0, numberUp * 2);
+
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberDown);
+	moveRelative(numberRight, 0);
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberDown);
 	pen(false);
 }
 
-void Robot::moveRelative(long x, long y){
+void Robot::drawNine(long x, long y) {
+	moveTo(x + numberXoffset, y + numberYoffset);
+	pen(true);
+	moveRelative(numberRight, 0);
+	moveRelative(0, numberUp * 2);
+	moveRelative(numberLeft, 0);
+	moveRelative(0, numberDown);
+	moveRelative(numberRight, 0);
+	pen(false);
+}
+
+void Robot::moveRelative(long x, long y) {
 	stepperX.move(x);
 	stepperY.move(y);
-	while(stepperX.isRunning()|| stepperY.isRunning()){
+	while (stepperX.isRunning() || stepperY.isRunning()) {
 		stepperX.run();
 		stepperY.run();
-		}
+	}
 }
 
 void Robot::pen(bool down) {
-	if(down) {
-		IOWR_32DIRECT(0x10004000,0,130000);
+	if (down) {
+		IOWR_32DIRECT(0x10004000, 0, 130000);
 		usleep(100000);
 	} else {
-		IOWR_32DIRECT(0x10004000,0,80000);
+		IOWR_32DIRECT(0x10004000, 0, 80000);
 		usleep(100000);
 	}
 }
 
 void Robot::xAsHoming(int Yas) {
-	while ( top.digitalRead(13)) {
+	while (top.digitalRead(13)) {
 
 		if (!top.digitalRead(13)) {
 			stepperX.stop();
@@ -240,8 +237,8 @@ void Robot::xAsHoming(int Yas) {
 		}
 	}
 
-	OSTimeDlyHMSM(0,0,0,50);
-	while( !top.digitalRead(13)){
+	OSTimeDlyHMSM(0, 0, 0, 50);
+	while (!top.digitalRead(13)) {
 
 		if (top.digitalRead(13)) {
 			stepperX.stop();
@@ -253,49 +250,8 @@ void Robot::xAsHoming(int Yas) {
 	}
 
 	stepperX.setCurrentPosition(0);
-	moveTo(-540 , Yas);
+	moveTo(-540, Yas);
 
-}
-
-void Robot::testDrive() {
-	Robot robot;
-	long tempY = 0;
-	long tempX = 0;
-	long tempXas = 0;
-	long tempYas = 0;
-	long totalMovesX = 0;
-	long totalMovesY = 0;
-
-	for (int x = 0; x <= 9; x++) {
-		for (int y = 0; y <= 9; y++) {
-
-			if (x < 3) {
-				tempX = 0;
-			} else if (x >= 3 && x < 6) {
-				tempX = 59;
-			} else if (x >= 6) {
-				tempX = 118;
-			}
-
-			if (y < 3) {
-				tempY = 0;
-			} else if (y >= 3 && y < 6) {
-				tempY = 9;
-
-			} else if (y >= 6) {
-				tempY = 18;// misschien - 4 doen
-				//		printf("tempY %d\n", tempY);
-			}
-				//-996!!!!!!!!!!!!!
-			totalMovesX = ( -969 * x) - tempX - 540;
-			totalMovesY = (y * 59) + tempY + 317;
-			printf("Xas = %l \t\t Yas = %l\n", totalMovesX, totalMovesY);
-			OSTimeDlyHMSM(0,0,1,0);
-			robot.moveTo(totalMovesX , totalMovesY);
-			tempXas = x;
-			tempYas = y;
-		}
-	}
 }
 
 void Robot::drawNumberToGrid(int value, long x, long y) {
@@ -303,8 +259,7 @@ void Robot::drawNumberToGrid(int value, long x, long y) {
 	long totalMovesX = 0;
 	long totalMovesY = 0;
 
-	totalMovesX = (-1065 * x) - 540;
-	totalMovesY = (y * 66) + 315;
-	moveTo(totalMovesX , totalMovesY);
-	drawNumber(value, x, y);
+	totalMovesX = (-1065 * x) - 640;
+	totalMovesY = ((8 - y) * 130) + 628;
+	drawNumber(value, totalMovesX, totalMovesY);
 }

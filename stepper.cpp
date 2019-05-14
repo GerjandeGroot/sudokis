@@ -390,7 +390,7 @@ void stepper::step1(long step)
     setOutputPins(_direction ? 0b11 : 0b01); // step HIGH
     // Caution 200ns setup time
     // Delay the minimum allowed pulse width
-    top.microDelay(_minPulseWidth);
+    usleep(_minPulseWidth);
     setOutputPins(_direction ? 0b10 : 0b00); // step LOW
 }
 

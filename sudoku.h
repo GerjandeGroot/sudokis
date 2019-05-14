@@ -1,10 +1,10 @@
 #ifndef SUDOKU_H_
 #define SUDOKU_H_
 
+#include "Robot.h"
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
-#include "sudoku.h"
 #include <time.h>
 #include <string>
 #include <unistd.h>

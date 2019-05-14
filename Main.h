@@ -55,7 +55,7 @@ public:
 	void drawPixelRaw(int x,int y,uint16_t value);
 	void sleep();
 	void microDelay(uint16_t time);
-	int learnOCR();
+	void learnOCR();
 	int testOCR();
 	void clearScreen();
 	uint16_t readPixel(uint16_t x, uint16_t y);

@@ -14,9 +14,9 @@
 #define camera			0x01	//white
 #define idle		 	0x02	//green
 #define error 			0x03	//red
-#define interupted		0x04	//blinking red
+#define interrupted		0x04	//blinking red
 #define busy			0x05	//blue
-#define start			0x01
+#define drawing			0x06	//yellow
 
 #define buffer	81
 void * MyBuff[buffer];
@@ -39,7 +39,7 @@ OS_FLAG_GRP *startFlag;
 
 bool flash = false;
 uint8_t status = idle;
-
+uint8_t prev_status;
 alt_up_parallel_port_dev* button = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
 
 /* The main function creates two task and starts multi-tasking */
@@ -62,7 +62,6 @@ void taskIO(void* pdata) {
 	top.pinMode(9, OUTPUT);
 	top.pinMode(10, OUTPUT);
 
-	startFlag = OSFlagCreate(0x00, &err);
 	printf("create tasks\n");
 	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
 
@@ -71,18 +70,16 @@ void taskIO(void* pdata) {
 	while(1){
 		//printf("In while, waiting...\n");
 		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
-			OSFlagPost(startFlag, start, OS_FLAG_SET, &err);
-
 			if(status == idle){
 
 				robot.home();
 				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 			}else if(status == camera){
 				status = busy;
-			}else if(status == interupted){
+			}else if(status == interrupted){
 				OSTaskResume(TaskImagePrio);
 				OSTaskResume(TaskRobotPrio);
-				status = busy;
+				status = prev_status;
 			}
 		}
 		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESET
@@ -95,11 +92,16 @@ void taskIO(void* pdata) {
 			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 		}
 		if(alt_up_parallel_port_read_data(top.keys) & 0b1000){ //NOODSTOP
-			printf("NOODSTOP!\n");
-			OSTaskSuspend(TaskImagePrio);
-			OSTaskSuspend(TaskRobotPrio);
-			status = interupted;
-			printf("Taken gestopt\n");
+			if(status != interrupted){
+				prev_status = status;
+				printf("NOODSTOP!\n");
+				OSTaskSuspend(TaskImagePrio);
+				OSTaskSuspend(TaskRobotPrio);
+				status = interrupted;
+				printf("Taken gestopt\n");
+
+			}
+
 		}
 
 		//RGB CONTROL
@@ -109,7 +111,7 @@ void taskIO(void* pdata) {
 			top.setRGB(true, true, true);	//WHITE
 		}else if(status == error){
 			top.setRGB(true,false,false);	//RED
-		}else if(status == interupted){
+		}else if(status == interrupted){
 			if(flash){
 				top.setRGB(true, false, false); //BLINKING RED
 			}
@@ -118,6 +120,8 @@ void taskIO(void* pdata) {
 			}
 		}else if(status == busy){
 			top.setRGB(false, false, true); //BLUE
+		}else if(status == drawing){
+			top.setRGB(true, false, true); //PURPLE
 		}
 		OSTimeDlyHMSM(0,0,0,125);
 	}
@@ -137,7 +141,7 @@ void taskImage(void* pdata) {
 		status = error;
 	}else{
 		status = idle;
-		bool up = true;
+		bool up = false;
 		for (int x = 0; x < 9; ++x) {
 			for(int y = 0; y < 9; y++){
 				Message *m = (Message *) malloc(sizeof(Message));
@@ -172,15 +176,20 @@ void taskImage(void* pdata) {
 void taskRobot(void* pdata) {
 	INT8U err;
 	Message *message;
+	status = drawing;
 	printf("In taskRobot\n");
 	while(1){
-		message = (Message *) OSQPend(top.coQueue, 0, &err);
+		message = (Message *) OSQPend(top.coQueue, 1, &err);
+		if(message == NULL){
+			break;
+		}
 		printf("Message: x: %d, y: %d, s: %d\n", message->x, message->y, message->solution);
 		printf("%d\n", (void *) message);
 		robot.drawNumberToGrid(message->solution,  message->x,  message->y);
 		free(message);
 	}
-
+	robot.home();
+	status = idle;
 }
 
 void taskFlash(void* pdata){

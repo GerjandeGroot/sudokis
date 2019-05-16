@@ -277,6 +277,7 @@ int Main::testOCR(Sudoku *sudoku) {
 	sudoku->printSudokuGrid(179, 19);
 	while (image.blackPixels()) {
 		SubImage object = image.extract();
+		if (object.y > (grid.y + grid.height)) continue;
 		if (object.width < 5 || object.height < 10)
 			continue;
 		if (object.width > 20 || object.height > 20)
@@ -286,6 +287,7 @@ int Main::testOCR(Sudoku *sudoku) {
 				(object.y - grid.y) / (grid.height / 9));
 		sudoku->addNumberTo2DArray((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9), guess);
+		if (object.x > (grid.x + grid.width)) break;
 	}
 	sudoku->solve();
 }

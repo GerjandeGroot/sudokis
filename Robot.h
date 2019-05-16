@@ -14,8 +14,8 @@
 
 #define numberXoffset -169
 #define numberYoffset 20
-#define numberRight -677
-#define numberLeft 677
+#define numberRight -600
+#define numberLeft 600
 #define numberUp  40
 #define numberDown -40
 

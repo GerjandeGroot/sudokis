@@ -48,6 +48,6 @@ public:
 	void xAsHoming();
 };
 
-#include "Main.h"
+#include "main.h"
 
 #endif /* ROBOT_H_ */

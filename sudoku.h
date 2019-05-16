@@ -9,7 +9,7 @@
 #include <string>
 #include <unistd.h>
 #include <sstream>
-#include "Main.h"
+
 
 #define WHITE 	0xffffff
 #define BLACK 	0x000000
@@ -17,12 +17,17 @@
 #define BLUE	0x0000ff
 #define UNKNOWN	0xf0f0f0
 
+class Main;
+
 class Sudoku {
 private:
-	int grid[9][9];
+
 public:
+	int grid[9][9];
+
+	Sudoku();
 	/**
-	 * @brief print sudoki grid op het scherm
+	 * @brief print sudoku grid op het scherm
 	 *
 	 * @param x -- Coordinate x positie
 	 * @param y -- Coordinate x positie
@@ -74,4 +79,5 @@ public:
 	void clearNewNumber(int row, int columnn);
 	void drawNewNumber(int row, int columnn);
 };
+
 #endif

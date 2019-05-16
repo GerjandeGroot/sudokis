@@ -19,6 +19,7 @@
 #define start			0x01
 
 #define buffer	81
+void * MyBuff[buffer];
 
 OS_STK TaskIOStack[10000];
 OS_STK TaskRobotStack[TASK_STACKSIZE];
@@ -30,6 +31,9 @@ void taskIO(void* pdata);
 void taskImage(void* pdata);
 void taskRobot(void* pdata);
 void taskFlash(void* pdata);
+
+Sudoku sudoku;
+Robot robot;
 
 OS_FLAG_GRP *startFlag;
 
@@ -48,8 +52,11 @@ int main(void) {
 
 void taskIO(void* pdata) {
 	INT8U err;
-	void * MyBuff[buffer];
-	coQueue = OSQCreate(&MyBuff[0], buffer);
+
+	top.coQueue = OSQCreate(&MyBuff[0], buffer);
+	if(top.coQueue == 0){
+		printf("Pas op, gerjan is lelijk punt n l");
+	}
 
 	top.pinMode(8, OUTPUT);
 	top.pinMode(9, OUTPUT);
@@ -62,12 +69,12 @@ void taskIO(void* pdata) {
 	top.clearScreen();
 
 	while(1){
-		printf("In while, waiting...\n");
+		//printf("In while, waiting...\n");
 		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
 			OSFlagPost(startFlag, start, OS_FLAG_SET, &err);
 
 			if(status == idle){
-				Robot robot;
+
 				robot.home();
 				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 			}else if(status == camera){
@@ -126,23 +133,52 @@ void taskImage(void* pdata) {
 	IOWR(0x10003060,3,0b000);
 	status = busy;
 
-	if(top.testOCR() < 0){
+	if(top.testOCR(&sudoku) < 0){
 		status = error;
 	}else{
 		status = idle;
-		printf("tasRobot wordt gestart");
+		bool up = true;
+		for (int x = 0; x < 9; ++x) {
+			for(int y = 0; y < 9; y++){
+				Message *m = (Message *) malloc(sizeof(Message));
+				if(malloc == 0){
+					printf("malloc error: message");
+					exit(203);
+				}
+				if(up) {
+					m->x = x;
+					m->y = y;
+					m->solution = sudoku.grid[x][y];
+				} else {
+					m->x = x;
+					m->y = 8-y;
+					m->solution = sudoku.grid[x][8-y];
+				}
+
+				err = OSQPost(top.coQueue, (void *) m);
+				printf("error: %d\n", err);
+				printf("%d\n", (void *) m);
+
+			}
+			up = !up;
+		}
+
+
+		printf("taskRobot wordt gestart\n");
 		OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
 	}
 }
 
 void taskRobot(void* pdata) {
 	INT8U err;
-	struct Message *message;
+	Message *message;
 	printf("In taskRobot\n");
 	while(1){
-		message = (Message *) OSQPend(coQueue, 0, &err);
-		printf("Message: x %c, y %c, s %c\n", message->x, message->y, message->solution);
-
+		message = (Message *) OSQPend(top.coQueue, 0, &err);
+		printf("Message: x: %d, y: %d, s: %d\n", message->x, message->y, message->solution);
+		printf("%d\n", (void *) message);
+		robot.drawNumberToGrid(message->solution,  message->x,  message->y);
+		free(message);
 	}
 
 }

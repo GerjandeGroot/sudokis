@@ -15,7 +15,7 @@ Image::Image(uint16_t width, uint16_t height) {
 
 Image::~Image() {
 	//delete[] imageData;
-	printf("delete");
+	printf("delete\n");
 	free(imageData);
 }
 

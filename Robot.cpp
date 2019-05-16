@@ -264,7 +264,7 @@ void Robot::drawNumberToGrid(int value, long x, long y) {
 	long totalMovesX = 0;
 	long totalMovesY = 0;
 
-	totalMovesX = (-1065 * x) - 650;
+	totalMovesX = (-1100 * x) - 700; // -1065 -650
 	totalMovesY = ((8 - y) * 134) + 628;
 	drawNumber(value, totalMovesX, totalMovesY);
 }

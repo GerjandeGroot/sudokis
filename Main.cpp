@@ -87,7 +87,7 @@ void Main::init() {
 		clearScreen();
 
 		if (alt_up_parallel_port_read_data(switches) & (1 << 16)) {
-			testOCR();
+			//testOCR();
 		} else if (alt_up_parallel_port_read_data(switches) & (1 << 17)) {
 			learnOCR();
 		} else if (alt_up_parallel_port_read_data(switches) & (1 << 14)) {
@@ -248,7 +248,7 @@ void Main::learnOCR() {
 	};
 }
 
-int Main::testOCR() {
+int Main::testOCR(Sudoku *sudoku) {
 	printf("load and display image\n");
 	Image image = Image(320, 240);
 	image.loadImage();
@@ -273,11 +273,8 @@ int Main::testOCR() {
 	printf("load ocr\n");
 	clearScreen();
 	OCR ocr;
-
 	printf("looping through objects in photo\n");
-	Sudoku sudoku;
-	sudoku.create2DArray();
-	sudoku.printSudokuGrid(179, 19);
+	sudoku->printSudokuGrid(179, 19);
 	while (image.blackPixels()) {
 		SubImage object = image.extract();
 		if (object.width < 5 || object.height < 10)
@@ -285,12 +282,12 @@ int Main::testOCR() {
 		if (object.width > 20 || object.height > 20)
 			continue;
 		uint8_t guess = ocr.recognizeNumber(&object);
-		sudoku.drawMainNumber((object.x - grid.x) / (grid.width / 9),
+		sudoku->drawMainNumber((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9));
-		sudoku.addNumberTo2DArray((object.x - grid.x) / (grid.width / 9),
+		sudoku->addNumberTo2DArray((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9), guess);
 	}
-	sudoku.solve();
+	sudoku->solve();
 }
 
 //Functie om een integer naar een char te converteren

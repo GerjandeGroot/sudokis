@@ -11,6 +11,12 @@
 
 #define timerBase 0x10002000
 
+typedef struct Message{
+	unsigned char x;
+	unsigned char y;
+	unsigned char solution;
+}message;
+
 #include "Robot.h"
 #include "typedefs.h"
 #include <stdio.h>
@@ -63,9 +69,9 @@ public:
 	char* itoa(int num);
 	void testSudoku();
 	void setRGB(bool r, bool g, bool b);
-
 };
 
 static Main top;
+static OS_EVENT *coQueue;
 
 #endif /* MAIN_H_ */

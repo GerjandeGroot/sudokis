@@ -26,6 +26,7 @@ private:
 public:
 
 	Robot();
+	uint8_t counter;
 	virtual ~Robot();
 	void home();
 	void moveTo(long x, long y);
@@ -44,7 +45,7 @@ public:
 	void drawNine(long x, long y);
 	void testDrive();
 	void drawNumberToGrid(int value, long x, long y);
-	void xAsHoming(int Yas);
+	void xAsHoming();
 };
 
 #include "Main.h"

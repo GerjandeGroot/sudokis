@@ -89,7 +89,8 @@ bool Sudoku::solve() {
 }
 
 bool Sudoku::solveCell(int x, int y) {
-	int solution = 0;
+	uint8_t solution = 0;
+	struct Message message;
 	for (int i = 1; i <= 9; i++) {
 		if (checkNumber(x, y, i)) {
 			if (solution > 0) {
@@ -101,7 +102,10 @@ bool Sudoku::solveCell(int x, int y) {
 				grid[x][y] = i;
 				drawNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
-				robot.drawNumberToGrid(i, x, y);
+				//robot.drawNumberToGrid(i,  x,  y);
+				message = {x,y,i};
+				OSQPost(coQueue, (void *)&message);
+
 				clearNewNumber(x, y);
 				addNumberTo2DArray(x, y, i);
 				return true;
@@ -112,7 +116,10 @@ bool Sudoku::solveCell(int x, int y) {
 		grid[x][y] = solution;
 		drawNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
-		robot.drawNumberToGrid(solution, x, y);
+		//robot.drawNumberToGrid(solution,  x,  y);
+		message = {x,y,solution};
+		OSQPost(coQueue, (void *)&message);
+
 		clearNewNumber(x, y);
 		addNumberTo2DArray(x, y, solution);
 		return true;

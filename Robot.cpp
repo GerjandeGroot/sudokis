@@ -225,7 +225,7 @@ void Robot::pen(bool down) {
 	}
 }
 
-void Robot::xAsHoming(int Yas) {
+void Robot::xAsHoming() {
 	while (top.digitalRead(13)) {
 
 		if (!top.digitalRead(13)) {
@@ -250,16 +250,21 @@ void Robot::xAsHoming(int Yas) {
 	}
 
 	stepperX.setCurrentPosition(0);
-	moveTo(-540, Yas);
 
 }
 
 void Robot::drawNumberToGrid(int value, long x, long y) {
-
+	if (counter == 5) {
+		//moveTo(,y);
+		xAsHoming();
+		counter = 0;
+	} else {
+		counter++;
+	}
 	long totalMovesX = 0;
 	long totalMovesY = 0;
 
-	totalMovesX = (-1065 * x) - 640;
-	totalMovesY = ((8 - y) * 130) + 628;
+	totalMovesX = (-1065 * x) - 650;
+	totalMovesY = ((8 - y) * 134) + 628;
 	drawNumber(value, totalMovesX, totalMovesY);
 }

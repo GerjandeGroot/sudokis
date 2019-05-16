@@ -57,13 +57,14 @@ public:
 	void drawPixelRaw(int x,int y,uint16_t value);
 	void sleep();
 	void learnOCR();
-	void testOCR();
+	int testOCR();
+	void testSudoku();
 	void clearScreen();
 	uint16_t readPixel(uint16_t x, uint16_t y);
 	void drawString(uint16_t x, uint16_t y, int text);
-	char* itoa(int num);
-	void testSudoku();
 	void setRGB(bool r, bool g, bool b);
+	void drawNumberTest();
+	char* itoa(int num);
 
 };
 

@@ -58,24 +58,22 @@ void taskIO(void* pdata) {
 
 	top.coQueue = OSQCreate(&MyBuff[0], buffer);
 	if(top.coQueue == 0){
-		printf("Pas op, gerjan is lelijk punt n l");
+		printf("Pas op, Queue is leeg...");
 	}
 
 	top.pinMode(8, OUTPUT);
 	top.pinMode(9, OUTPUT);
 	top.pinMode(10, OUTPUT);
 
-	printf("create tasks\n");
+	status = idle;
+	robot.home();
 	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
 	OSTaskCreate(taskWelcomeFlash, (void *)0, &TaskWelcomeFlashStack[TASK_STACKSIZE-1], TaskWelcomeFlashPrio);
 	top.clearScreen();
 	top.displayStartScreen();
 	while(1){
-		//printf("In while, waiting...\n");
 		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
 			if(status == idle){
-
-				robot.home();
 				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 			}else if(status == camera){
 				status = busy;
@@ -86,7 +84,7 @@ void taskIO(void* pdata) {
 			}
 		}
 		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESET
-			printf("RESET ingedrukt\n");
+			printf("RESET is ingedrukt\n");
 			status = idle;
 			Robot robot;
 			robot.home();
@@ -101,7 +99,7 @@ void taskIO(void* pdata) {
 				OSTaskSuspend(TaskImagePrio);
 				OSTaskSuspend(TaskRobotPrio);
 				status = interrupted;
-				printf("Taken gestopt\n");
+				printf("Taken zijn gestopt\n");
 
 			}
 
@@ -133,7 +131,7 @@ void taskIO(void* pdata) {
 void taskImage(void* pdata) {
 	INT8U err;
 	status = camera;
-	printf("in taskImage\n");
+	printf("taskImage wordt uitgevoerd\n");
 	top.clearScreen();
 	IOWR(0x10003060,3,0b100);
 	OSTimeDlyHMSM(0,0,3,0);
@@ -149,7 +147,7 @@ void taskImage(void* pdata) {
 			for(int y = 0; y < 9; y++){
 				Message *m = (Message *) malloc(sizeof(Message));
 				if(malloc == 0){
-					printf("malloc error: message");
+					printf("malloc error!");
 					exit(203);
 				}
 				if(up) {
@@ -166,13 +164,10 @@ void taskImage(void* pdata) {
 
 				err = OSQPost(top.coQueue, (void *) m);
 				printf("error: %d\n", err);
-				printf("%d\n", (void *) m);
 
 			}
 			up = !up;
 		}
-
-
 		printf("taskRobot wordt gestart\n");
 		OSTaskCreate(taskRobot, (void *)0, &TaskRobotStack[TASK_STACKSIZE-1], TaskRobotPrio);
 	}
@@ -188,28 +183,24 @@ void taskRobot(void* pdata) {
 		if(message == NULL){
 			break;
 		}
-		printf("Message: x: %d, y: %d, s: %d\n", message->x, message->y, message->solution);
-		printf("%d\n", (void *) message);
 		sudoku.drawBusy(message->x,message->y);
 		robot.drawNumberToGrid(message->solution,  message->x,  message->y);
 		sudoku.drawIdle(message->x,message->y);
 		free(message);
 	}
 	printf("Ik ben er helemaal klaar mee");
-	robot.home();
 	status = idle;
+	robot.home();
 	OSTaskDel(TaskRobotPrio);
 }
 
 void taskFlash(void* pdata){
-	//INT8U err;
 	while(1){
 		flash = !flash;
 		OSTimeDlyHMSM(0,0,0,125);
 	}
 }
 void taskWelcomeFlash(void* pdata){
-	//INT8U err;
 	while(1){
 		flash = !flash;
 		OSTimeDlyHMSM(0,0,0,125);

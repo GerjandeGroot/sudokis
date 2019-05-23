@@ -87,7 +87,7 @@ void Main::init() {
 		clearScreen();
 
 		if (alt_up_parallel_port_read_data(switches) & (1 << 16)) {
-			testOCR();
+			//testOCR();
 		} else if (alt_up_parallel_port_read_data(switches) & (1 << 17)) {
 			learnOCR();
 		} else if (alt_up_parallel_port_read_data(switches) & (1 << 14)) {
@@ -121,18 +121,6 @@ void Main::setRGB(bool r, bool g, bool b) {
 	digitalWrite(8, r);
 	digitalWrite(9, g);
 	digitalWrite(10, b);
-}
-
-void Main::drawNumberTest() {
-	Robot robot;
-	for (int y = 0; y < 9; y++) {
-		for (int x = 0; x < 9; x++) {
-
-			//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
-
-			robot.drawNumber(x + 1, -540 - 1110 * x, 300 + 67 * y);
-		}
-	}
 }
 
 int Main::constrain(int x, int a, int b) {
@@ -192,16 +180,14 @@ void Main::sleep() {
 void Main::testSudoku() {
 	Sudoku sudoku;
 	clearScreen();
-	sudoku.testSudoku1();
 }
 
 void Main::learnOCR() {
 	printf("capture image\n");
 	IOWR(0x10003060, 3, 0b100);
-	setRGB(true,true,true);
+	setRGB(true, true, true);
 	sleep();
 	IOWR(0x10003060, 3, 0b000);
-
 
 	printf("load and display image\n");
 	Image image = Image(320, 240);
@@ -262,14 +248,7 @@ void Main::learnOCR() {
 	};
 }
 
-int Main::testOCR() {
-	printf("capture image\n");
-	IOWR(0x10003060, 3, 0b100);
-	setRGB(true,true,true);
-	sleep();
-	IOWR(0x10003060, 3, 0b000);
-	setRGB(false,false,true);
-
+int Main::testOCR(Sudoku *sudoku) {
 	printf("load and display image\n");
 	Image image = Image(320, 240);
 	image.loadImage();
@@ -294,24 +273,21 @@ int Main::testOCR() {
 	printf("load ocr\n");
 	clearScreen();
 	OCR ocr;
-
 	printf("looping through objects in photo\n");
-	Sudoku sudoku;
-	sudoku.create2DArray();
-	sudoku.printSudokuGrid(179, 19);
+	sudoku->printSudokuGrid(179, 19);
 	while (image.blackPixels()) {
 		SubImage object = image.extract();
+		if (object.y > (grid.y + grid.height)) continue;
 		if (object.width < 5 || object.height < 10)
 			continue;
 		if (object.width > 20 || object.height > 20)
 			continue;
 		uint8_t guess = ocr.recognizeNumber(&object);
-		sudoku.drawMainNumber((object.x - grid.x) / (grid.width / 9),
-				(object.y - grid.y) / (grid.height / 9));
-		sudoku.addNumberTo2DArray((object.x - grid.x) / (grid.width / 9),
+		sudoku->addMainNumber((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9), guess);
+		if (object.x > (grid.x + grid.width)) break;
 	}
-	sudoku.solve();
+	sudoku->solve();
 }
 
 //Functie om een integer naar een char te converteren
@@ -337,4 +313,30 @@ char* Main::itoa(int num) {
 void Main::drawString(uint16_t x, uint16_t y, int text) {
 	alt_up_video_dma_draw_string(dma, itoa(text), x, y, 0);
 }
+void Main::drawString(uint16_t x, uint16_t y, char* text) {
+	alt_up_video_dma_draw_string(dma, text, x, y, 0);
+}
+void Main::welcomeSudokis(){
 
+
+		drawString(15,5,"Welcome to SUDOKIS world!");
+		OSTimeDlyHMSM(0,0,0,125);
+
+		drawString(15,5,"                                ");
+		OSTimeDlyHMSM(0,0,0,125);
+
+
+}
+void Main::displayStartScreen() {
+
+
+	drawString(5,11,"How to use this device:");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,13,"Step 1: place your Sudoku in the robot and secure it with the magnets.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,14,"Step 2: Press key 1 to start the robot.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,16,"For emergency press key 3.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,17,"Reset the system by pressing key 2.");
+}

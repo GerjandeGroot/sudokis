@@ -9,7 +9,7 @@
 #include <string>
 #include <unistd.h>
 #include <sstream>
-#include "Main.h"
+
 
 #define WHITE 	0xffffff
 #define BLACK 	0x000000
@@ -17,12 +17,18 @@
 #define BLUE	0x0000ff
 #define UNKNOWN	0xf0f0f0
 
+class Main;
+
 class Sudoku {
 private:
-	int grid[9][9];
+
 public:
+	uint8_t grid[9][9];
+	uint8_t mainNumbers[9][9];
+
+	Sudoku();
 	/**
-	 * @brief print sudoki grid op het scherm
+	 * @brief print sudoku grid op het scherm
 	 *
 	 * @param x -- Coordinate x positie
 	 * @param y -- Coordinate x positie
@@ -39,13 +45,15 @@ public:
 		 * @param y -- De kolom positie van 2D aray
 		 *
 		 **/
-	void addNumberTo2DArray(int x, int y, int value);
+	void addMainNumber(int x, int y, int value);
+	void addNumber(int x, int y, int value);
 	/**
 		 * @brief convert een integer naar een string
 		 *
 		 * @param num --  De int waarde die converteerd moet worden
 		 *
 		 **/
+	void printNumber(int x, int y);
 	char* itoa(int num);
 	bool solve();
 	bool solveCell(int x, int y);
@@ -71,7 +79,8 @@ public:
 		 * @param y -- De colom positie van 2D aray
 		 *
 		 **/
-	void clearNewNumber(int row, int columnn);
-	void drawNewNumber(int row, int columnn);
+	void drawBusy(int row, int columnn);
+	void drawIdle(int row, int columnn);
 };
+
 #endif

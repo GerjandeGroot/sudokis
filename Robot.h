@@ -12,10 +12,10 @@
 #include "typedefs.h"
 #include <unistd.h>
 
-#define numberXoffset -169
-#define numberYoffset 20
-#define numberRight -677
-#define numberLeft 677
+#define numberXoffset -169*2 //-169
+#define numberYoffset 20	//20
+#define numberRight -1200 // -600
+#define numberLeft 1200 // 600
 #define numberUp  40
 #define numberDown -40
 
@@ -26,6 +26,7 @@ private:
 public:
 
 	Robot();
+	uint8_t counter;
 	virtual ~Robot();
 	void home();
 	void moveTo(long x, long y);
@@ -44,8 +45,9 @@ public:
 	void drawNine(long x, long y);
 	void testDrive();
 	void drawNumberToGrid(int value, long x, long y);
+	void xAsHoming();
 };
 
-#include "Main.h"
+#include "main.h"
 
 #endif /* ROBOT_H_ */

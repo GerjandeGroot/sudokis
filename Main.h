@@ -11,6 +11,13 @@
 
 #define timerBase 0x10002000
 
+typedef struct Message{
+	unsigned char x;
+	unsigned char y;
+	unsigned char solution;
+}message;
+
+#include "sudoku.h"
 #include "Robot.h"
 #include "typedefs.h"
 #include <stdio.h>
@@ -26,11 +33,10 @@
 #include "SubImage.h"
 #include "Image.h"
 #include "OCR.h"
-#include "sudoku.h"
 #include "includes.h"
-#include    "os_cfg.h"
-#include    "ucos_ii.h"
 #include <math.h>
+
+class Sudoku;
 
 class Main {
 public:
@@ -43,6 +49,8 @@ public:
 	alt_up_video_dma_dev* dma = alt_up_video_dma_open_dev("/dev/VGA_Subsystem_Char_Buf_Subsystem_Char_Buf_DMA");
 	alt_up_ps2_dev* ps2 = alt_up_ps2_open_dev("/dev/PS2_Port");
 	//alt_up_pixel_buffer_dma_dev* av = alt_up_pixel_buffer_dma_open_dev("/dev/Video_In_Subsystem_Video_In_DMA");
+	OS_EVENT *coQueue = 0;
+
 
 	void rgbTest();
 	void startTimer();
@@ -56,18 +64,21 @@ public:
 	void drawPixel(int x,int y,bool on);
 	void drawPixelRaw(int x,int y,uint16_t value);
 	void sleep();
+	void microDelay(uint16_t time);
 	void learnOCR();
-	int testOCR();
-	void testSudoku();
+	int testOCR(Sudoku *sudoku);
 	void clearScreen();
 	uint16_t readPixel(uint16_t x, uint16_t y);
 	void drawString(uint16_t x, uint16_t y, int text);
-	void setRGB(bool r, bool g, bool b);
-	void drawNumberTest();
+	void drawString(uint16_t x, uint16_t y, char* text);
 	char* itoa(int num);
-
+	void testSudoku();
+	void setRGB(bool r, bool g, bool b);
+	void displayStartScreen();
+	void welcomeSudokis();
 };
 
 static Main top;
+
 
 #endif /* MAIN_H_ */

@@ -11,8 +11,8 @@ Robot::Robot() {
 	top.pinMode(12, INPUT); //Y
 	top.pinMode(13, INPUT); //X
 
-	stepperX.setMaxSpeed(1500);
-	stepperX.setAcceleration(2500);
+	stepperX.setMaxSpeed(4000); // 1500
+	stepperX.setAcceleration(6000); // 2500
 	stepperX.setMinPulseWidth(1);
 
 	stepperY.setMaxSpeed(2000);
@@ -46,9 +46,7 @@ void Robot::home() {
 			stepperX.run();
 		}
 	}
-	usleep(50000);
-	stepperY.setCurrentPosition(0);
-	stepperX.setCurrentPosition(0);
+	OSTimeDlyHMSM(0, 0, 0, 50);
 	while (!top.digitalRead(12) || !top.digitalRead(13)) {
 		if (top.digitalRead(12)) {
 			stepperY.stop();
@@ -68,52 +66,6 @@ void Robot::home() {
 	stepperY.setCurrentPosition(0);
 	stepperX.setCurrentPosition(0);
 
-}
-
-void Robot::testDrive() {
-	int tempY = 0;
-	int tempX = 0;
-	int tempXas = 0;
-	int tempYas = 0;
-	bool xAs = false;
-	bool yAs = false;
-	int totalMovesX = 0;
-	int totalMovesY = 0;
-	for (int x = 0; x <= 9; x++) {
-		for (int y = 0; y <= 9; y++) {
-
-
-			if (x == 0) {
-				tempX = 0;
-			} else if (x >= 3 && x < 6) {
-
-				tempX = 59;
-
-			} else if (x >= 6) {
-				tempX = 118;
-
-			}
-
-			if (y == 0) {
-				tempY = 0;
-			} else if (y >= 3 && y < 6) {
-				tempY = 9;
-
-
-			} else if (y >= 6) {
-				tempY = 18;
-				//		printf("tempY %d\n", tempY);
-			}
-
-			totalMovesX = (x * 996) + tempX;
-			totalMovesY = (y * 59) + tempY;
-			printf("Xas = %d \t\t Yas = %d\n", totalMovesX, totalMovesY);
-			usleep(1000000);
-			//stepperX.moveTo(totalMovesX, totalMovesY);
-			tempXas = x;
-			tempYas = y;
-		}
-	}
 }
 
 void Robot::moveTo(long x, long y) {
@@ -273,13 +225,46 @@ void Robot::pen(bool down) {
 	}
 }
 
-void Robot::drawNumberToGrid(int value, long x, long y) {
+void Robot::xAsHoming() {
+	while (top.digitalRead(13)) {
 
+		if (!top.digitalRead(13)) {
+			stepperX.stop();
+			stepperX.setSpeed(0);
+		} else {
+			stepperX.move(6000);
+			stepperX.run();
+		}
+	}
+
+	OSTimeDlyHMSM(0, 0, 0, 50);
+	while (!top.digitalRead(13)) {
+
+		if (top.digitalRead(13)) {
+			stepperX.stop();
+			stepperX.setSpeed(0);
+		} else {
+			stepperX.move(-100);
+			stepperX.run();
+		}
+	}
+
+	stepperX.setCurrentPosition(0);
+
+}
+
+void Robot::drawNumberToGrid(int value, long x, long y) {
+	if (counter == 5) {
+		//moveTo(,y);
+		xAsHoming();
+		counter = 0;
+	} else {
+		counter++;
+	}
 	long totalMovesX = 0;
 	long totalMovesY = 0;
 
-	totalMovesX = (-1065 * x) - 640;
-	totalMovesY = ((8-y) * 130) + 628;
+	totalMovesX = (-2200 * x) - 1560; // -1100 -780
+	totalMovesY = ((8 - y) * 134) + 628; //134 628
 	drawNumber(value, totalMovesX, totalMovesY);
 }
-

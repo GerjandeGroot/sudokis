@@ -49,7 +49,7 @@ public:
 
 void setPixel(uint8_t imageData[], uint16_t x, uint16_t y, uint8_t value);
 
-#include "Main.h"
+#include "main.h"
 #include "SubImage.h"
 
 #endif /* IMAGE_H_ */

@@ -1,6 +1,8 @@
 #include "sudoku.h"
 
-Robot robot;
+Sudoku::Sudoku(){
+	create2DArray();
+}
 
 //Functie om sudoku grid op het scherm te printen
 void Sudoku::printSudokuGrid(int x, int y) {
@@ -19,26 +21,43 @@ void Sudoku::printSudokuGrid(int x, int y) {
 	}
 }
 
+void Sudoku::printNumber(int x,int y) {
+	if(grid[x][y] == 0) return;
+	int newX = x * 3 + 46;
+	int newY = y * 3 + 6;
+	top.drawString(newX,newY,grid[x][y]); // het \em grid gaat per stappen van 3
+}
+
 //Functie om een een 2D array aan te maken, standaard gevuld met nullen
 void Sudoku::create2DArray() {
 	int i, j;
 	for (i = 0; i < 9; i++) {
 		for (j = 0; j < 9; j++) {
 			grid[i][j] = 0;
+			mainNumbers[i][j] = 0;
 		}
 	}
 }
 
 //Functie om een nummer in de 2D array te zetten en weer te geven in sudoku grid
-void Sudoku::addNumberTo2DArray(int x, int y, int value) {
+void Sudoku::addMainNumber(int x, int y, int value) {
+	if (x > 9 || y > 9) {
+		printf("ERROR number to high");
+	} else {
+		mainNumbers[x][y] = value;
+		grid[x][y] = value;
+		drawMainNumber(x,y);
+		printNumber(x,y);
+	}
+}
+
+//Functie om een nummer in de 2D array te zetten en weer te geven in sudoku grid
+void Sudoku::addNumber(int x, int y, int value) {
 	if (x > 9 || y > 9) {
 		printf("ERROR number to high");
 	} else {
 		grid[x][y] = value;
-		int newX = x * 3 + 46;
-		int newY = y * 3 + 6;
-
-		top.drawString(newX,newY,value); // het \em grid gaat per stappen van 3
+		printNumber(x,y);
 	}
 }
 
@@ -59,18 +78,25 @@ void Sudoku::drawMainNumber(int row, int columnn) {
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLUE, 0);
 }
 
-void Sudoku::drawNewNumber(int row, int columnn) {
+void Sudoku::drawBusy(int row, int columnn) {
 	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, UNKNOWN, 0);
+	printNumber(row,columnn);
 }
 
-void Sudoku::clearNewNumber(int row, int columnn) {
+void Sudoku::drawIdle(int row, int columnn) {
 	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLACK, 0);
+	printNumber(row,columnn);
 }
 
 bool Sudoku::solve() {
-	//robot.home();
+	for (int x = 0; x < 9; x++) {
+		for (int y = 0; y < 9; y++) {
+			grid[x][y] = mainNumbers[x][y];
+		}
+	}
+
 	bool changed = true;
 	while (changed) {
 		changed = false;
@@ -91,7 +117,9 @@ bool Sudoku::solve() {
 }
 
 bool Sudoku::solveCell(int x, int y) {
-	int solution = 0;
+	uint8_t solution = 0;
+	uint8_t err;
+	struct Message message;
 	for (int i = 1; i <= 9; i++) {
 		if (checkNumber(x, y, i)) {
 			if (solution > 0) {
@@ -101,24 +129,14 @@ bool Sudoku::solveCell(int x, int y) {
 			}
 			if (posElim(x, y, i)) {
 				grid[x][y] = i;
-				drawNewNumber(x, y);
-				addNumberTo2DArray(x, y, i);
-				robot.drawNumberToGrid(i,  x,  y);
-				//OSTimeDlyHMSM(0,0,0,500);
-				clearNewNumber(x, y);
-				addNumberTo2DArray(x, y, i);
+				addNumber(x, y, i);
 				return true;
 			}
 		}
 	}
 	if (solution < 10 && solution > 0) {
 		grid[x][y] = solution;
-		drawNewNumber(x, y);
-		addNumberTo2DArray(x, y, solution);
-		robot.drawNumberToGrid(solution,  x,  y);
-		//OSTimeDlyHMSM(0,0,0,500);
-		clearNewNumber(x, y);
-		addNumberTo2DArray(x, y, solution);
+		addNumber(x, y, solution);
 		return true;
 	}
 	return false;
@@ -196,199 +214,6 @@ void Sudoku::reset2Darray() {
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
 			grid[j][i] = 0;
-		}
-	}
-}
-
-void Sudoku::testSudoku1() {
-	reset2Darray();
-	printSudokuGrid(179,19);
-	int row = 0;
-	//rij 1
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 5);
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 3);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 7);
-	row++;
-	//rij 2
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 6);
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 1);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 9);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 5);
-	row++;
-	//rij 3
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 9);
-	drawMainNumber(2, row);
-	addNumberTo2DArray(2, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 6);
-	row++;
-	//rij 4
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 8);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 6);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 3);
-	row++;
-	//rij 5
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 4);
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 8);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 3);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 1);
-	row++;
-	//rij 6
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 7);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 2);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 6);
-	row++;
-	//rij 7
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 6);
-	drawMainNumber(6, row);
-	addNumberTo2DArray(6, row, 2);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 8);
-	row++;
-	//rij 8
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 4);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 1);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 9);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 5);
-	row++;
-
-	//rij 9
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 7);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 9);
-
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++) {
-			int test = grid[j][i];
-			top.drawString(j, i + 1,test);
-		}
-	}
-	OSTimeDlyHMSM(0,0,5,0);
-	solve();
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++) {
-			int test = grid[j][i];
-			top.drawString(j, i + 1,test);
-		}
-	}
-	OSTimeDlyHMSM(0,0,5,0);
-}
-
-void Sudoku::testSudoku2() {
-	int row = 0;
-	//rij 1
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 2);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 7);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 1);
-	row++;
-	//rij 2
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 6);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 4);
-	row++;
-	//rij 3
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 9);
-	drawMainNumber(2, row);
-	addNumberTo2DArray(2, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 6);
-	row++;
-	//rij 4
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 8);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 6);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 3);
-	row++;
-	//rij 5
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 4);
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 8);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 3);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 1);
-	row++;
-	//rij 6
-	drawMainNumber(0, row);
-	addNumberTo2DArray(0, row, 7);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 2);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 6);
-	row++;
-	//rij 7
-	drawMainNumber(1, row);
-	addNumberTo2DArray(1, row, 6);
-	drawMainNumber(6, row);
-	addNumberTo2DArray(6, row, 2);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 8);
-	row++;
-	//rij 8
-	drawMainNumber(3, row);
-	addNumberTo2DArray(3, row, 4);
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 1);
-	drawMainNumber(5, row);
-	addNumberTo2DArray(5, row, 9);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 5);
-	row++;
-
-	//rij 9
-	drawMainNumber(4, row);
-	addNumberTo2DArray(4, row, 8);
-	drawMainNumber(7, row);
-	addNumberTo2DArray(7, row, 7);
-	drawMainNumber(8, row);
-	addNumberTo2DArray(8, row, 9);
-
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++) {
-			int test = grid[j][i];
-			top.drawString(j, i + 1,test);
-		}
-	}
-	OSTimeDlyHMSM(0,0,5,0);
-	solve();
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++) {
-			int test = grid[j][i];
-			top.drawString(j, i + 1,test);
 		}
 	}
 }

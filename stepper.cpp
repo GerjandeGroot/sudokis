@@ -46,7 +46,7 @@ boolean stepper::runSpeed()
     if (!_stepInterval)
 	return false;
 
-    unsigned long time = top.micros();
+    unsigned long time = micros();
     if (time - _lastStepTime >= _stepInterval)
     {
 	if (_direction == DIRECTION_CW)
@@ -301,7 +301,7 @@ void stepper::setSpeed(float speed)
 {
     if (speed == _speed)
         return;
-    speed = top.constrain(speed, -_maxSpeed, _maxSpeed);
+    speed = constrain(speed, -_maxSpeed, _maxSpeed);
     if (speed == 0.0)
 	_stepInterval = 0;
     else
@@ -365,7 +365,7 @@ void stepper::setOutputPins(uint8_t mask)
 	numpins = 3;
     uint8_t i;
     for (i = 0; i < numpins; i++)
-	top.digitalWrite(_pin[i], (mask & (1 << i)) ? (HIGH ^ _pinInverted[i]) : (LOW ^ _pinInverted[i]));
+	digitalWrite(_pin[i], (mask & (1 << i)) ? (HIGH ^ _pinInverted[i]) : (LOW ^ _pinInverted[i]));
 }
 
 // 0 pin step function (ie for functional usage)
@@ -549,8 +549,8 @@ void    stepper::disableOutputs()
     setOutputPins(0); // Handles inversion automatically
     if (_enablePin != 0xff)
     {
-    	top.pinMode(_enablePin, OUTPUT);
-        top.digitalWrite(_enablePin, LOW ^ _enableInverted);
+    	pinMode(_enablePin, OUTPUT);
+        digitalWrite(_enablePin, LOW ^ _enableInverted);
     }
 }
 
@@ -559,22 +559,22 @@ void    stepper::enableOutputs()
     if (! _interface)
 	return;
 
-    top.pinMode(_pin[0], OUTPUT);
-    top.pinMode(_pin[1], OUTPUT);
+    pinMode(_pin[0], OUTPUT);
+    pinMode(_pin[1], OUTPUT);
     if (_interface == FULL4WIRE || _interface == HALF4WIRE)
     {
-    	top.pinMode(_pin[2], OUTPUT);
-        top.pinMode(_pin[3], OUTPUT);
+    	pinMode(_pin[2], OUTPUT);
+        pinMode(_pin[3], OUTPUT);
     }
     else if (_interface == FULL3WIRE || _interface == HALF3WIRE)
     {
-    	top.pinMode(_pin[2], OUTPUT);
+    	pinMode(_pin[2], OUTPUT);
     }
 
     if (_enablePin != 0xff)
     {
-    	top.pinMode(_enablePin, OUTPUT);
-        top.digitalWrite(_enablePin, HIGH ^ _enableInverted);
+    	pinMode(_enablePin, OUTPUT);
+        digitalWrite(_enablePin, HIGH ^ _enableInverted);
     }
 }
 
@@ -590,8 +590,8 @@ void stepper::setEnablePin(uint8_t enablePin)
     // This happens after construction, so init pin now.
     if (_enablePin != 0xff)
     {
-    	top.pinMode(_enablePin, OUTPUT);
-        top.digitalWrite(_enablePin, HIGH ^ _enableInverted);
+    	pinMode(_enablePin, OUTPUT);
+        digitalWrite(_enablePin, HIGH ^ _enableInverted);
     }
 }
 

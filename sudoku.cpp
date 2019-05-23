@@ -9,13 +9,13 @@ void Sudoku::printSudokuGrid(int x, int y) {
 
 	for (int j = 0; j < 9; j++) {
 		for (int i = 0; i < 9; i++) {
-			alt_up_pixel_buffer_dma_draw_rectangle(top.pb, x + i * 12, y + j * 12,
+			alt_up_pixel_buffer_dma_draw_rectangle(pb, x + i * 12, y + j * 12,
 					x + i * 12 + 12, y + j * 12 + 12, WHITE, 0);
 		}
 	}
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			alt_up_pixel_buffer_dma_draw_rectangle(top.pb, x + i * 36, y + j * 36,
+			alt_up_pixel_buffer_dma_draw_rectangle(pb, x + i * 36, y + j * 36,
 					x + i * 36 + 36, y + j * 36 + 36, YELLOW, 0);
 		}
 	}
@@ -25,7 +25,7 @@ void Sudoku::printNumber(int x,int y) {
 	if(grid[x][y] == 0) return;
 	int newX = x * 3 + 46;
 	int newY = y * 3 + 6;
-	top.drawString(newX,newY,grid[x][y]); // het \em grid gaat per stappen van 3
+	drawString(newX,newY,grid[x][y]); // het \em grid gaat per stappen van 3
 }
 
 //Functie om een een 2D array aan te maken, standaard gevuld met nullen
@@ -62,30 +62,30 @@ void Sudoku::addNumber(int x, int y, int value) {
 }
 
 void Sudoku::printSolutionToSudokuGrid() {
-	top.clearScreen();
+	clearScreen();
 	for (int y = 0; y < 9; y++) {
 		for (int x = 0; x < 0; x++) {
 			int value = grid[x][y];
 			int newX = x * 3 + 46;
 			int newY = y * 3 + 6;
-			top.drawString(newX,newY,value);
+			drawString(newX,newY,value);
 		}
 	}
 }
 
 void Sudoku::drawMainNumber(int row, int columnn) {
-	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
+	alt_up_pixel_buffer_dma_draw_box(pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLUE, 0);
 }
 
 void Sudoku::drawBusy(int row, int columnn) {
-	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
+	alt_up_pixel_buffer_dma_draw_box(pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, UNKNOWN, 0);
 	printNumber(row,columnn);
 }
 
 void Sudoku::drawIdle(int row, int columnn) {
-	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
+	alt_up_pixel_buffer_dma_draw_box(pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLACK, 0);
 	printNumber(row,columnn);
 }

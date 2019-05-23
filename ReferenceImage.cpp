@@ -66,7 +66,7 @@ void ReferenceImage::correct(Image *image) {
 void ReferenceImage::draw(uint16_t x, uint16_t y) {
 	for (int dx = 0; dx < imageDataSize; ++dx) {
 		for (int dy = 0; dy < imageDataSize; ++dy) {
-			top.drawPixelRaw(x+dx,y+dy,getScore(dx,dy),getScore(dx,dy),getScore(dx,dy));
+			drawPixelRGB(x+dx,y+dy,getScore(dx,dy),getScore(dx,dy),getScore(dx,dy));
 		}
 	}
 }

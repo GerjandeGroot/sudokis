@@ -15,12 +15,8 @@
 #include <unistd.h>
 #include <stack>
 #include <io.h>
+#include "standard_functions.h"
 
-void clearScreen();
-void drawPixel(int x,int y,bool on);
-void drawPixelRaw(int x,int y,uint16_t value);
-uint16_t readPixel(uint16_t x, uint16_t y);
-void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b);
 class SubImage;
 
 class Image {
@@ -47,9 +43,6 @@ public:
 	bool blackPixels();
 };
 
-void setPixel(uint8_t imageData[], uint16_t x, uint16_t y, uint8_t value);
-
-#include "main.h"
 #include "SubImage.h"
 
 #endif /* IMAGE_H_ */

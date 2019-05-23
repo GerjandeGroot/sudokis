@@ -11,6 +11,7 @@
 #include "stepper.h"
 #include "typedefs.h"
 #include <unistd.h>
+#include "standard_functions.h"
 
 #define numberXoffset -169*2 //-169
 #define numberYoffset 20	//20

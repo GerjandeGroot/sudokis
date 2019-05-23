@@ -8,8 +8,8 @@
 #include "Robot.h"
 
 Robot::Robot() {
-	top.pinMode(12, INPUT); //Y
-	top.pinMode(13, INPUT); //X
+	pinMode(12, INPUT); //Y
+	pinMode(13, INPUT); //X
 	stepperX.setMaxSpeed(4000); // 1500
 	stepperX.setAcceleration(6000); // 2500
 	stepperX.setMinPulseWidth(1);
@@ -29,15 +29,15 @@ void Robot::home() {
 	//stepperX.move(10);
 	//stepperX.
 	//stepperY.setSpeed(-100);
-	while (top.digitalRead(12) || top.digitalRead(13)) {
-		if (!top.digitalRead(12)) {
+	while (digitalRead(12) || digitalRead(13)) {
+		if (!digitalRead(12)) {
 			stepperY.stop();
 			stepperY.setSpeed(0);
 		} else {
 			stepperY.move(-50);
 			stepperY.run();
 		}
-		if (!top.digitalRead(13)) {
+		if (!digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
 		} else {
@@ -46,15 +46,15 @@ void Robot::home() {
 		}
 	}
 	OSTimeDlyHMSM(0, 0, 0, 50);
-	while (!top.digitalRead(12) || !top.digitalRead(13)) {
-		if (top.digitalRead(12)) {
+	while (!digitalRead(12) || !digitalRead(13)) {
+		if (digitalRead(12)) {
 			stepperY.stop();
 			stepperY.setSpeed(0);
 		} else {
 			stepperY.move(10);
 			stepperY.run();
 		}
-		if (top.digitalRead(13)) {
+		if (digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
 		} else {
@@ -225,9 +225,9 @@ void Robot::pen(bool down) {
 }
 
 void Robot::xAsHoming() {
-	while (top.digitalRead(13)) {
+	while (digitalRead(13)) {
 
-		if (!top.digitalRead(13)) {
+		if (!digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
 		} else {
@@ -237,9 +237,9 @@ void Robot::xAsHoming() {
 	}
 
 	OSTimeDlyHMSM(0, 0, 0, 50);
-	while (!top.digitalRead(13)) {
+	while (!digitalRead(13)) {
 
-		if (top.digitalRead(13)) {
+		if (digitalRead(13)) {
 			stepperX.stop();
 			stepperX.setSpeed(0);
 		} else {

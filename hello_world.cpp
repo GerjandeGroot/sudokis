@@ -1,4 +1,5 @@
 #include "Main.h"
+#include "standard_functions.h"
 #include <io.h>
 /* Definition of Task Stacks */
 #define		TASK_STACKSIZE		2048
@@ -61,18 +62,19 @@ void taskIO(void* pdata) {
 		printf("Pas op, Queue is leeg...");
 	}
 
-	top.pinMode(8, OUTPUT);
-	top.pinMode(9, OUTPUT);
-	top.pinMode(10, OUTPUT);
+	pinMode(8, OUTPUT);
+	pinMode(9, OUTPUT);
+	pinMode(10, OUTPUT);
 
 	status = idle;
 	robot.home();
 	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
 	OSTaskCreate(taskWelcomeFlash, (void *)0, &TaskWelcomeFlashStack[TASK_STACKSIZE-1], TaskWelcomeFlashPrio);
-	top.clearScreen();
+	clearScreen();
 	top.displayStartScreen();
 	while(1){
-		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
+		//printf("In while, waiting...\n");
+		if(keysRead(1)){ //START
 			if(status == idle){
 				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 			}else if(status == camera){
@@ -83,8 +85,8 @@ void taskIO(void* pdata) {
 				status = prev_status;
 			}
 		}
-		if(alt_up_parallel_port_read_data(top.keys) & 0b100){ // RESET
-			printf("RESET is ingedrukt\n");
+		if(keysRead(2)){ // RESET
+			printf("RESET ingedrukt\n");
 			status = idle;
 			Robot robot;
 			robot.home();
@@ -92,7 +94,7 @@ void taskIO(void* pdata) {
 			OSTaskDel(TaskRobotPrio);
 			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
 		}
-		if(alt_up_parallel_port_read_data(top.keys) & 0b1000){ //NOODSTOP
+		if(keysRead(3)){ //NOODSTOP
 			if(status != interrupted){
 				prev_status = status;
 				printf("NOODSTOP!\n");
@@ -132,7 +134,7 @@ void taskImage(void* pdata) {
 	INT8U err;
 	status = camera;
 	printf("taskImage wordt uitgevoerd\n");
-	top.clearScreen();
+	clearScreen();
 	IOWR(0x10003060,3,0b100);
 	OSTimeDlyHMSM(0,0,3,0);
 	IOWR(0x10003060,3,0b000);
@@ -146,8 +148,8 @@ void taskImage(void* pdata) {
 		for (int x = 0; x < 9; ++x) {
 			for(int y = 0; y < 9; y++){
 				Message *m = (Message *) malloc(sizeof(Message));
-				if(malloc == 0){
-					printf("malloc error!");
+				if(m == 0){
+					printf("malloc error: message");
 					exit(203);
 				}
 				if(up) {

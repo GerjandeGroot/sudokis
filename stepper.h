@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
+#include "standard_functions.h"
 
 // These defs cause trouble on some versions of Arduino
 #undef round
@@ -423,6 +424,5 @@ private:
     float _cmin; // at max speed
 
 };
-#include "main.h"
 
 #endif

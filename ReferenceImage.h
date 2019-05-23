@@ -11,9 +11,9 @@
 #define imageDataSize 20
 
 #include "typedefs.h"
+#include "standard_functions.h"
 
 class Image;
-void drawPixelRaw(int x,int y,uint8_t r, uint8_t g, uint8_t b);
 
 class ReferenceImage {
 private:
@@ -32,6 +32,5 @@ public:
 };
 
 #include "Image.h"
-#include "Main.h"
 
 #endif /* REFERENCEIMAGE_H_ */

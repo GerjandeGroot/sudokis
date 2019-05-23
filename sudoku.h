@@ -9,6 +9,7 @@
 #include <string>
 #include <unistd.h>
 #include <sstream>
+#include "standard_functions.h"
 
 
 #define WHITE 	0xffffff

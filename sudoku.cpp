@@ -21,25 +21,43 @@ void Sudoku::printSudokuGrid(int x, int y) {
 	}
 }
 
+void Sudoku::printNumber(int x,int y) {
+	if(grid[x][y] == 0) return;
+	int newX = x * 3 + 46;
+	int newY = y * 3 + 6;
+	top.drawString(newX,newY,grid[x][y]); // het \em grid gaat per stappen van 3
+}
+
 //Functie om een een 2D array aan te maken, standaard gevuld met nullen
 void Sudoku::create2DArray() {
 	int i, j;
 	for (i = 0; i < 9; i++) {
 		for (j = 0; j < 9; j++) {
 			grid[i][j] = 0;
+			mainNumbers[i][j] = 0;
 		}
 	}
 }
 
 //Functie om een nummer in de 2D array te zetten en weer te geven in sudoku grid
-void Sudoku::addNumberTo2DArray(int x, int y, int value) {
+void Sudoku::addMainNumber(int x, int y, int value) {
+	if (x > 9 || y > 9) {
+		printf("ERROR number to high");
+	} else {
+		mainNumbers[x][y] = value;
+		grid[x][y] = value;
+		drawMainNumber(x,y);
+		printNumber(x,y);
+	}
+}
+
+//Functie om een nummer in de 2D array te zetten en weer te geven in sudoku grid
+void Sudoku::addNumber(int x, int y, int value) {
 	if (x > 9 || y > 9) {
 		printf("ERROR number to high");
 	} else {
 		grid[x][y] = value;
-		int newX = x * 3 + 46;
-		int newY = y * 3 + 6;
-		top.drawString(newX,newY,value); // het \em grid gaat per stappen van 3
+		printNumber(x,y);
 	}
 }
 
@@ -60,17 +78,25 @@ void Sudoku::drawMainNumber(int row, int columnn) {
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLUE, 0);
 }
 
-void Sudoku::drawNewNumber(int row, int columnn) {
+void Sudoku::drawBusy(int row, int columnn) {
 	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, UNKNOWN, 0);
+	printNumber(row,columnn);
 }
 
-void Sudoku::clearNewNumber(int row, int columnn) {
+void Sudoku::drawIdle(int row, int columnn) {
 	alt_up_pixel_buffer_dma_draw_box(top.pb, 180 + row * 12, 20 + columnn * 12,
 			180 + row * 12 + 10, 20 + columnn * 12 + 10, BLACK, 0);
+	printNumber(row,columnn);
 }
 
 bool Sudoku::solve() {
+	for (int x = 0; x < 9; x++) {
+		for (int y = 0; y < 9; y++) {
+			grid[x][y] = mainNumbers[x][y];
+		}
+	}
+
 	bool changed = true;
 	while (changed) {
 		changed = false;
@@ -103,26 +129,14 @@ bool Sudoku::solveCell(int x, int y) {
 			}
 			if (posElim(x, y, i)) {
 				grid[x][y] = i;
-				drawNewNumber(x, y);
-				addNumberTo2DArray(x, y, i);
-
-
-				clearNewNumber(x, y);
-				addNumberTo2DArray(x, y, i);
+				addNumber(x, y, i);
 				return true;
 			}
 		}
 	}
 	if (solution < 10 && solution > 0) {
 		grid[x][y] = solution;
-		drawNewNumber(x, y);
-		addNumberTo2DArray(x, y, solution);
-		//robot.drawNumberToGrid(solution,  x,  y);
-		message = {x,y,solution};
-		OSQPost(top.coQueue, (void *)&message);
-
-		clearNewNumber(x, y);
-		addNumberTo2DArray(x, y, solution);
+		addNumber(x, y, solution);
 		return true;
 	}
 	return false;

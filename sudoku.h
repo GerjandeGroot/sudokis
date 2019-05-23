@@ -23,7 +23,8 @@ class Sudoku {
 private:
 
 public:
-	int grid[9][9];
+	uint8_t grid[9][9];
+	uint8_t mainNumbers[9][9];
 
 	Sudoku();
 	/**
@@ -44,13 +45,15 @@ public:
 		 * @param y -- De kolom positie van 2D aray
 		 *
 		 **/
-	void addNumberTo2DArray(int x, int y, int value);
+	void addMainNumber(int x, int y, int value);
+	void addNumber(int x, int y, int value);
 	/**
 		 * @brief convert een integer naar een string
 		 *
 		 * @param num --  De int waarde die converteerd moet worden
 		 *
 		 **/
+	void printNumber(int x, int y);
 	char* itoa(int num);
 	bool solve();
 	bool solveCell(int x, int y);
@@ -76,8 +79,8 @@ public:
 		 * @param y -- De colom positie van 2D aray
 		 *
 		 **/
-	void clearNewNumber(int row, int columnn);
-	void drawNewNumber(int row, int columnn);
+	void drawBusy(int row, int columnn);
+	void drawIdle(int row, int columnn);
 };
 
 #endif

@@ -283,9 +283,7 @@ int Main::testOCR(Sudoku *sudoku) {
 		if (object.width > 20 || object.height > 20)
 			continue;
 		uint8_t guess = ocr.recognizeNumber(&object);
-		sudoku->drawMainNumber((object.x - grid.x) / (grid.width / 9),
-				(object.y - grid.y) / (grid.height / 9));
-		sudoku->addNumberTo2DArray((object.x - grid.x) / (grid.width / 9),
+		sudoku->addMainNumber((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9), guess);
 		if (object.x > (grid.x + grid.width)) break;
 	}
@@ -314,4 +312,32 @@ char* Main::itoa(int num) {
 
 void Main::drawString(uint16_t x, uint16_t y, int text) {
 	alt_up_video_dma_draw_string(dma, itoa(text), x, y, 0);
+}
+
+void Main::drawString(uint16_t x, uint16_t y, char* text) {
+	alt_up_video_dma_draw_string(dma, text, x, y, 0);
+}
+void Main::welcomeSudokis(){
+
+
+		drawString(15,5,"Welcome to SUDOKIS world!");
+		OSTimeDlyHMSM(0,0,0,125);
+
+		drawString(15,5,"                                ");
+		OSTimeDlyHMSM(0,0,0,125);
+
+
+}
+void Main::displayStartScreen() {
+
+
+	drawString(5,11,"How to use this device:");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,13,"Step 1: place your Sudoku in the robot and secure it with the magnets.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,14,"Step 2: Press key 1 to start the robot.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,16,"For emergency press key 3.");
+	OSTimeDlyHMSM(0,0,1,125);
+	drawString(5,17,"Reset the system by pressing key 2.");
 }

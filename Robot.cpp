@@ -10,9 +10,8 @@
 Robot::Robot() {
 	top.pinMode(12, INPUT); //Y
 	top.pinMode(13, INPUT); //X
-
-	stepperX.setMaxSpeed(1500);
-	stepperX.setAcceleration(2500);
+	stepperX.setMaxSpeed(4000); // 1500
+	stepperX.setAcceleration(6000); // 2500
 	stepperX.setMinPulseWidth(1);
 
 	stepperY.setMaxSpeed(2000);
@@ -264,7 +263,7 @@ void Robot::drawNumberToGrid(int value, long x, long y) {
 	long totalMovesX = 0;
 	long totalMovesY = 0;
 
-	totalMovesX = (-1100 * x) - 780; // -1065 -650
-	totalMovesY = ((8 - y) * 134) + 628;
+	totalMovesX = (-2200 * x) - 1560; // -1100 -780
+	totalMovesY = ((8 - y) * 134) + 628; //134 628
 	drawNumber(value, totalMovesX, totalMovesY);
 }

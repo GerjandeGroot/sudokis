@@ -5,11 +5,12 @@
 #define		TASK_IMAGE_STACK	20000
 
 /* Definition of Task Priorities */
-#define TaskIOPrio			5
-#define TaskFlashPrio		6
-#define MutexPrio			7
-#define TaskRobotPrio		8
-#define TaskImagePrio   	9
+#define TaskIOPrio				5
+#define TaskFlashPrio			6
+#define MutexPrio				7
+#define TaskRobotPrio			8
+#define TaskImagePrio   		9
+#define TaskWelcomeFlashPrio	12
 
 #define camera			0x01	//white
 #define idle		 	0x02	//green
@@ -25,12 +26,14 @@ OS_STK TaskIOStack[10000];
 OS_STK TaskRobotStack[TASK_STACKSIZE];
 OS_STK TaskImageStack[TASK_IMAGE_STACK];
 OS_STK TaskFlashStack[TASK_STACKSIZE];
+OS_STK TaskWelcomeFlashStack[TASK_STACKSIZE];
 
 //function prototypes
 void taskIO(void* pdata);
 void taskImage(void* pdata);
 void taskRobot(void* pdata);
 void taskFlash(void* pdata);
+void taskWelcomeFlash(void* pdata);
 
 Sudoku sudoku;
 Robot robot;
@@ -64,9 +67,9 @@ void taskIO(void* pdata) {
 
 	printf("create tasks\n");
 	OSTaskCreate(taskFlash, (void *)0, &TaskFlashStack[TASK_STACKSIZE-1], TaskFlashPrio);
-
+	OSTaskCreate(taskWelcomeFlash, (void *)0, &TaskWelcomeFlashStack[TASK_STACKSIZE-1], TaskWelcomeFlashPrio);
 	top.clearScreen();
-
+	top.displayStartScreen();
 	while(1){
 		//printf("In while, waiting...\n");
 		if(alt_up_parallel_port_read_data(top.keys) & 0b10){ //START
@@ -153,10 +156,12 @@ void taskImage(void* pdata) {
 					m->x = x;
 					m->y = y;
 					m->solution = sudoku.grid[x][y];
+					if(sudoku.mainNumbers[x][y] > 0) continue;
 				} else {
 					m->x = x;
 					m->y = 8-y;
 					m->solution = sudoku.grid[x][8-y];
+					if(sudoku.mainNumbers[x][8-y] > 0) continue;
 				}
 
 				err = OSQPost(top.coQueue, (void *) m);
@@ -185,11 +190,15 @@ void taskRobot(void* pdata) {
 		}
 		printf("Message: x: %d, y: %d, s: %d\n", message->x, message->y, message->solution);
 		printf("%d\n", (void *) message);
+		sudoku.drawBusy(message->x,message->y);
 		robot.drawNumberToGrid(message->solution,  message->x,  message->y);
+		sudoku.drawIdle(message->x,message->y);
 		free(message);
 	}
+	printf("Ik ben er helemaal klaar mee");
 	robot.home();
 	status = idle;
+	OSTaskDel(TaskRobotPrio);
 }
 
 void taskFlash(void* pdata){
@@ -197,5 +206,13 @@ void taskFlash(void* pdata){
 	while(1){
 		flash = !flash;
 		OSTimeDlyHMSM(0,0,0,125);
+	}
+}
+void taskWelcomeFlash(void* pdata){
+	//INT8U err;
+	while(1){
+		flash = !flash;
+		OSTimeDlyHMSM(0,0,0,125);
+		top.welcomeSudokis();
 	}
 }

@@ -70,9 +70,12 @@ public:
 	void clearScreen();
 	uint16_t readPixel(uint16_t x, uint16_t y);
 	void drawString(uint16_t x, uint16_t y, int text);
+	void drawString(uint16_t x, uint16_t y, char* text);
 	char* itoa(int num);
 	void testSudoku();
 	void setRGB(bool r, bool g, bool b);
+	void displayStartScreen();
+	void welcomeSudokis();
 };
 
 static Main top;

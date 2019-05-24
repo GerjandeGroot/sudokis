@@ -29,7 +29,6 @@ public:
 	 *
 	 **/
 	void printSudokuGrid(int x, int y);
-	void resetScreen();
 	void printSolutionToSudokuGrid();
 	void create2DArray();
 	/**

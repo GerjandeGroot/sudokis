@@ -71,27 +71,6 @@ void Main::init() {
 
 	setRGB(false,true,false);
 
-	Robot robot;
-	while(1) {
-		robot.home();
-		//BELANGRIJKE WAARDE MAX X = -10500, MAX Y = 900!!!!
-	//	robot.moveTo(-10500, 900);
-		robot.moveTo(-540, 310);
-		usleep(1000000);
-	//	robot.moveTo(-10400, 890);
-		for(int y = 0; y < 9; y++){
-			for(int x = 0; x< 9; x++){
-
-				//robot.drawNumber(8, -540 - 1110 * x , 310 + 67 * y);
-
-				robot.drawNumber(x+1, -540 - 1110 * x , 300 + 67 * y);
-			}
-		}
-
-		sleep();
-	}
-
-
 //	alt_up_parallel_port_set_port_direction(expansion, 0xFFFFFF);
 
 	while(1) {

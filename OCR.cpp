@@ -16,10 +16,6 @@ OCR::OCR() {
 	}
 }
 
-OCR::~OCR() {
-	// TODO Auto-generated destructor stub
-}
-
 void OCR::draw(uint16_t x, uint16_t y) {
 	for (uint8_t i = 0; i < characters; ++i) {
 		referenceImages[i].draw(x + i * 22,y);
@@ -50,7 +46,6 @@ uint8_t OCR::recognizeNumber(Image *image) {
 }
 
 void OCR::save() {
-	//IOWR_32DIRECT(0x0BFF0000,0,flashBase);
 	printf("=================\n");
 	printf("{");
 	for (uint8_t i = 0; i < characters; ++i) {

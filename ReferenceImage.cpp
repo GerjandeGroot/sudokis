@@ -10,17 +10,11 @@
 ReferenceImage::ReferenceImage() {};
 
 ReferenceImage::ReferenceImage(uint32_t address) {
-	this->address = address;
 	for (int dx = 0; dx < imageDataSize; ++dx) {
 		for (int dy = 0; dy < imageDataSize; ++dy) {
 			setScore(dy,dx,(uint8_t)IORD_8DIRECT(address,dy*imageDataSize+dx));
-			//setScore(dy,dx,255);
 		}
 	}
-}
-
-ReferenceImage::~ReferenceImage() {
-	// TODO Auto-generated destructor stub
 }
 
 void ReferenceImage::setScore(uint8_t x, uint8_t y, uint8_t score) {

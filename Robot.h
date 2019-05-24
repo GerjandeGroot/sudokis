@@ -23,13 +23,37 @@ private:
 	stepper stepperX = stepper(1, 2, 3);
 public:
 	Robot();
-	virtual ~Robot();
+	/*
+	 *home de robot
+	 */
 	void home();
+	/*
+	 * beweeg de robot naar een positie
+	 * x: positie
+	 * y: positie
+	 */
 	void moveTo(long x, long y);
+	/*
+	 * beweeg de robot rlatief
+	 * x: relatief x
+	 * y: relatief y
+	 */
 	void moveRelative(long x, long y);
+	/*
+	 * teken een nummer'
+	 * value: nummer dat getekend moet worden
+	 * x, y positie
+	 */
 	void drawNumber(int value, long x, long y);
+	/*
+	 * beweeg pen omhoog of omlaag
+	 * down: 1 = omlaag 0=omhoog
+	 */
 	void pen(bool down);
 
+	/*
+	 * teken functie voor elk getal
+	 */
 	void drawOne(long x, long y);
 	void drawTwo(long x, long y);
 	void drawThree(long x, long y);

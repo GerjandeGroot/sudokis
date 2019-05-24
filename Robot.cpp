@@ -21,10 +21,6 @@ Robot::Robot() {
 	pen(false);
 }
 
-Robot::~Robot() {
-	// TODO Auto-generated destructor stub
-}
-
 void Robot::home() {
 	//stepperX.move(10);
 	//stepperX.

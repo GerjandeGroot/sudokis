@@ -18,6 +18,11 @@
 #define BLUE	0x0000ff
 #define UNKNOWN	0xf0f0f0
 
+#define xPosGrid 179+24
+#define yPosGrid 19+36
+#define xPosNumbers 52
+#define yPosNumbers 15
+
 class Main;
 
 class Sudoku {
@@ -35,7 +40,7 @@ public:
 	 * @param y -- Coordinate x positie
 	 *
 	 **/
-	void printSudokuGrid(int x, int y);
+	void printSudokuGrid();
 	void printSolutionToSudokuGrid();
 	void create2DArray();
 	/**

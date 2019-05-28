@@ -108,7 +108,13 @@ int Main::testOCR(Sudoku *sudoku) {
 	clearScreen();
 	OCR ocr;
 	printf("looping through objects in photo\n");
-	sudoku->printSudokuGrid(179, 19);
+
+	#define xOffset 0
+	#define yOffset 0
+
+	grid.drawInverted(xOffset,yOffset);
+	sudoku->printSudokuGrid();
+
 	while (image.blackPixels()) {
 		SubImage object = image.extract();
 		if (object.y > (grid.y + grid.height)) continue;
@@ -119,6 +125,7 @@ int Main::testOCR(Sudoku *sudoku) {
 		uint8_t guess = ocr.recognizeNumber(&object);
 		sudoku->addMainNumber((object.x - grid.x) / (grid.width / 9),
 				(object.y - grid.y) / (grid.height / 9), guess);
+		object.drawInverted(object.x+xOffset-grid.x, object.y+yOffset-grid.y);
 		if (object.x > (grid.x + grid.width)) break;
 	}
 	sudoku->solve();

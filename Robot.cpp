@@ -10,8 +10,8 @@
 Robot::Robot() {
 	pinMode(12, INPUT); //Y
 	pinMode(13, INPUT); //X
-	stepperX.setMaxSpeed(4000); // 1500
-	stepperX.setAcceleration(6000); // 2500
+	stepperX.setMaxSpeed(3500); // 1500
+	stepperX.setAcceleration(5000); // 2500
 	stepperX.setMinPulseWidth(1);
 
 	stepperY.setMaxSpeed(2000);
@@ -211,8 +211,8 @@ void Robot::moveRelative(long x, long y) {
 }
 
 void Robot::pen(bool down) {
-	if (down) {
-		IOWR_32DIRECT(0x10004000, 0, 130000);
+	if (down && !switchesRead(0)) {
+		IOWR_32DIRECT(0x10004000, 0, 120000);
 		usleep(100000);
 	} else {
 		IOWR_32DIRECT(0x10004000, 0, 80000);

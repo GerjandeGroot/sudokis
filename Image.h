@@ -23,6 +23,9 @@ class Image {
 private:
 	uint8_t *imageData = 0;
 
+	uint16_t firstBlackPixelX;
+	uint16_t firstBlackPixelY;
+
 public:
 	uint16_t width;
 	uint16_t height;
@@ -84,6 +87,12 @@ public:
 	 * y: positie op scherm (0-240)
 	 */
 	void draw(uint16_t x, uint16_t y);
+	/*
+		 * draw image on screen inverted colors
+		 * x: positie op scherm (0-320)
+		 * y: positie op scherm (0-240)
+		 */
+	void drawInverted(uint16_t x, uint16_t y);
 	/*
 	 * extract een object uit de foto
 	 * een object is een groep zwaerte pixels aan elkaar verbonden

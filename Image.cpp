@@ -8,6 +8,8 @@
 #include "Image.h"
 
 Image::Image(uint16_t width, uint16_t height) {
+	firstBlackPixelX = 0;
+	firstBlackPixelY = 0;
 	this->width = width;
 	this->height = height;
 	createData();
@@ -45,11 +47,14 @@ void Image::clearImage() {
 }
 
 bool Image::blackPixels() {
-	for (int x = 0; x < width; ++x) {
-		for (int y = 0; y < height; ++y) {
-			if (!getPixel(x, y))
+	while(firstBlackPixelX < width) {
+		while(firstBlackPixelY < height){
+			if (!getPixel(firstBlackPixelX, firstBlackPixelY))
 				return true;
+			firstBlackPixelY++;
 		}
+		firstBlackPixelX++;
+		firstBlackPixelY = 0;
 	}
 	return false;
 }
@@ -138,6 +143,14 @@ void Image::draw(uint16_t x, uint16_t y) {
 	};
 }
 
+void Image::drawInverted(uint16_t x, uint16_t y) {
+	for (int dx = 0; dx < width; ++dx) {
+		for (int dy = 0; dy < height; ++dy) {
+			drawPixelBW(x + dx, y + dy, !getPixel(dx, dy));
+		};
+	};
+}
+
 SubImage Image::extract() {
 	uint16_t xc[9000];
 	uint16_t yc[9000];
@@ -145,22 +158,15 @@ SubImage Image::extract() {
 	uint32_t checkedPointer = 0;
 	uint16_t minX, minY, maxX, maxY;
 
-	for (uint16_t x = 0; x < width; ++x) {
-		for (uint16_t y = 0; y < height; ++y) {
-			if (!getPixel(x, y)) {
-				setPixelRaw(x, y, 1);
-				xc[pointer] = x;
-				yc[pointer] = y;
-				pointer++;
-				minX = x;
-				minY = y;
-				maxX = x;
-				maxY = y;
-				x = width;
-				y = height;
-			}
-		}
-	}
+	blackPixels();
+	setPixelRaw(firstBlackPixelX, firstBlackPixelY, 1);
+	xc[pointer] = firstBlackPixelX;
+	yc[pointer] = firstBlackPixelY;
+	pointer++;
+	minX = firstBlackPixelX;
+	minY = firstBlackPixelY;
+	maxX = firstBlackPixelX;
+	maxY = firstBlackPixelY;
 
 	while (checkedPointer < pointer) {
 		uint16_t x = xc[checkedPointer];

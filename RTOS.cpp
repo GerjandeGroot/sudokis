@@ -46,9 +46,8 @@ uint8_t status = idle;
 uint8_t prev_status;
 alt_up_parallel_port_dev* button = alt_up_parallel_port_open_dev("/dev/Pushbuttons");
 
-/* The main function creates two task and starts multi-tasking */
+/* The main function creates one task and starts multi-tasking */
 int main(void) {
-	IOWR(0x10003060,3,0b000);
 	INT8U err;
 	OSTaskCreate(taskIO, (void*)0, &TaskIOStack[10000 - 1], TaskIOPrio);
 	OSStart();
@@ -74,7 +73,6 @@ void taskIO(void* pdata) {
 	clearScreen();
 	top.displayStartScreen();
 	while(1){
-		//printf("In while, waiting...\n");
 		if(keysRead(1)){ //START
 			if(status == idle){
 				OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);
@@ -91,7 +89,6 @@ void taskIO(void* pdata) {
 			status = idle;
 			Robot robot;
 			robot.home();
-			OSQFlush(top.coQueue);
 			OSTaskDel(TaskImagePrio);
 			OSTaskDel(TaskRobotPrio);
 			OSTaskCreate(taskImage, (void *)0, &TaskImageStack[TASK_IMAGE_STACK-1], TaskImagePrio);

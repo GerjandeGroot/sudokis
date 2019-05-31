@@ -124,7 +124,8 @@ void startTimer();
  */
 unsigned long micros();
 /*
- *
+ * delay aantal microseconden 
+ * time: tijd in microseconden
  */
 void microDelay(uint16_t time);
 

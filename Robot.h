@@ -46,7 +46,7 @@ public:
 	/*
 	 * teken een nummer'
 	 * value: nummer dat getekend moet worden
-	 * x, y positie
+	 * x, y: stepper coordinaten
 	 */
 	void drawNumber(int value, long x, long y);
 	/*
@@ -68,7 +68,15 @@ public:
 	void drawEight(long x, long y);
 	void drawNine(long x, long y);
 	void testDrive();
+	/*
+	* draws number to sudoku grid
+	* value: number to draw
+	* x,y: position on the sudoku grid
+	*/
 	void drawNumberToGrid(int value, long x, long y);
+	/*
+	* Home the x as
+	*/
 	void xAsHoming();
 };
 

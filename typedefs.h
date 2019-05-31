@@ -8,11 +8,11 @@
 #ifndef TYPEDEFS_H_
 #define TYPEDEFS_H_
 
-typedef int8_t char
-typedef uint8_t unsigned char
-typedef uint16_t unsigned short
-typedef boolean unsigned char
-typedef uint32_t unsigned int
+typedef char int8_t;
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned char boolean;
+typedef unsigned int uint32_t;
 
 #define OUTPUT 1
 #define INPUT 0
